@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+:root{
+    --blanco-suave: #f1f5e3;
+    --verde-claro: #9dc08b;
+    --verde: #609966;
+    --verde-oscuro: #40513b;
+    --azul: #1d538a;
+    --blanco: #ffffff;
+}
+body{
+    width: auto;
+    height: auto;
+    margin: auto;
+    background-color: var(--blanco-suave);
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+/* Barra de NAVEGACION */
+nav{
+    width: auto;
+    height: 4rem;
+    background-color: var(--verde);
+    overflow: hidden;
+}
+nav img{
+    float: left;
+    padding: 0%;
+    margin: 0.5rem 0rem 1rem 1rem;
+    width: 5%;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+nav button{
+    margin: 1.2rem 3rem 1rem 1rem;
+    float: right;
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size:130%;
+    color: #ffffff;
+    font-weight: 700;
+    -webkit-transition:all .2s ease;
+}
+nav button:hover{
+    
+    background-size:cover;
+    -webkit-transform:scale(1.25);
+}
+
+
+/* Perfin e Historial de compras */
+
+.contenedor-perfil{
+    width: 70%;
+    overflow: hidden;
+    height: auto;
+    margin: 5rem 17rem 0rem 17rem;
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.informacion-usuario{
+    
+    width: 55%;
+    text-align: center;
+}
+.informacion-usuario img{
+    width: 70%;
+    margin: 3rem 0rem 0rem 0rem;
+}
+.informacion-usuario p {
+    margin: 0.8rem 0 0.8rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    font-weight:600;
+    font-style: oblique;
+}
+
+
+/*Editar perfil y ver Historial */
+
+.editar-historial{
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem
+}
+.botones button{
+    margin: 2rem 2rem 0rem 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    height: 2.3rem;
+    border:none;
+    border-radius: 2px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    -webkit-transition:all .2s ease;
+    box-shadow: rgba(0, 0, 0, 0.267) 3px 5px 5px 3px;
+}
+.botones button:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #f5f1f1e3;
+    -webkit-transform:scale(1.25);
+}
+.botones{
+    margin-left: 9rem;
+    margin-bottom: 0.7rem;
+}
+form{
+    border: solid black 2px;
+    border-radius: 3px;
+    width: 65%;
+    margin-left: 10rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+form label{
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif;
+    margin: 1rem 0rem 0rem 0rem;
+    display: block;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+::placeholder{
+    opacity: 0.6;
+    font-style: oblique;
+}
+.input-control{
+    margin-left: 2rem;
+}
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 70%;
+}
+.input-control.success input {
+    border-color: #09c372;
+}
+.input-control.error input {
+    border-color: #ff3860;
+}
+.input-control .error {
+    color: #ff3860;
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+    height: 13px;
+}
+form input:focus{
+    border-color: #609966; /* Cambia el color del borde cuando está enfocado */
+    outline: 0;
+}
+form h2{
+    margin-top: 1rem;
+    margin-left: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.guardar-cambios{
+    margin: 2rem 2rem 2rem 1rem;
+    height: 2.3rem;
+    padding: 0rem 1rem 0rem 1rem;
+    border:none;
+    border-radius: 2px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    -webkit-transition:all .2s ease;
+    float: right;
+    box-shadow: rgba(0, 0, 0, 0.267) 3px 5px 5px 3px;
+}
+.guardar-cambios:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #f5f1f1e3;
+    -webkit-transform:scale(1.25);
+}
+
+/* HISTORIAL DE COMPRAS */
+
+.contenedor-historial{
+    display: flex;
+    justify-content: center;
+}
+.historial{
+    width: 70%;
+}
+.historial h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--verde-claro);;
+}
+
+.fecha{
+    display: flex;
+    justify-content: space-between;
+}
+.fecha h2{
+    width: 100%;
+}
+input[type="date"]{
+    margin-top: 1.8rem;
+    height: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--verde-claro);
+    padding-bottom: 0.4rem;
+}
+img{
+    width: 20%;
+    border-radius: 1rem;
+}
+.container-pedidos{
+    display: flex;
+    justify-content: center;
+}
+.realizar-compra{
+    width: 100%;
+    padding: 2rem;
+    height: auto;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+h2, h3{
+    margin: 1rem 0rem 1rem 0rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+}
+.resumen{
+    text-align: start;
+}
+h3{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    border-bottom: 2px solid var(--azul);
+    padding-bottom: 5px;
+
+}
+
+.pedido{
+    
+    margin: 2rem 0rem 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.pedido p, .pedido a{
+    margin: 1.8rem 0rem 1.8rem 0rem;
+    font-family: "Roboto", sans-serif;
+}
+.pedido a{
+    color: black;
+}
+
+
+/*footer*/
+.container{
+    width: 100%;
+}
+.footer{
+    margin-top: 3rem;
+    background-color: var(--verde-oscuro);
+    padding:60px 0;
+}
+.footer-row{
+    display:flex;
+    justify-content: center;
+}
+
+.footer-links{
+    width: 15%;
+    padding: 0 10px;
+}
+.footer-desc{
+    text-align: center;
+    width: 35%;
+    margin: 0 15rem 0 8.7rem;
+}
+.footer-desc h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--blanco);
+    font-style: oblique;
+}
+.footer-desc p{
+    font-family: "Roboto", sans-serif;
+    color: var(--blanco);
+    font-weight: 200;
+    font-style: oblique;
+    font-size: 1.2rem;
+    
+    
+}
+
+.footer-links h4{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    border-bottom: 2px solid var(--azul);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-links ul li a{
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--blanco-suave);
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: all .3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--blanco);
+    padding-left: 6px;
+}

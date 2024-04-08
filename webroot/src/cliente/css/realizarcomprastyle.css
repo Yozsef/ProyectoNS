@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:root{
+    --blanco-suave: #f1f5e3;
+    --verde-claro: #9dc08b;
+    --verde: #609966;
+    --verde-oscuro: #40513b;
+    --azul: #1d538a;
+    --blanco: #ffffff;
+}
+
+body{
+    background-color: var(--blanco-suave);
+}
+/* NAV */
+
+nav{
+    width: auto;
+    height: 4rem;
+    background-color: var(--verde);
+    overflow: hidden;
+}
+nav img{
+    float: left;
+    padding: 0%;
+    margin: 0.5rem 0rem 1rem 1rem;
+    width: 5%;
+}
+nav button a{
+    color: white;
+    text-decoration: none;
+}
+nav button{
+    margin: 1.2rem 3rem 1rem 1rem;
+    float: right;
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size:130%;
+    color: #ffffff;
+    font-weight: 700;
+    -webkit-transition:all .2s ease;
+}
+nav button:hover{
+    
+    background-size:cover;
+    -webkit-transform:scale(1.25);
+}
+
+/* Realizar compra */
+
+img{
+    width: 15%;
+    border-radius: 1rem;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.realizar-compra{
+    text-align: center;
+    width: 50%;
+    padding: 2rem;
+    height: auto;
+    margin: 3rem 17rem 0rem 17rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+h2, h3{
+    margin: 1rem 0rem 1rem 0rem;
+    font-weight: 400;
+    font-size: 2rem;
+    font-family: "Roboto", sans-serif;
+}
+.resumen{
+    text-align: start;
+}
+h3{
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    border-bottom: 2px solid var(--azul);
+    padding-bottom: 5px;
+
+}
+button a{
+    color: black;
+    text-decoration: none;
+}
+
+.pedido{
+    
+    margin: 2rem 0rem 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.pedido p, .pedido a{
+    margin: 1.8rem 0rem 1.8rem 0rem;
+    font-family: "Roboto", sans-serif;
+}
+.pedido a{
+    color: black;
+}
+.caja-2{
+    float: right;
+}
+
+.container button{
+    margin: 1rem 2rem 1rem 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    height: 3rem;
+    border:none;
+    border-radius: 2px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    -webkit-transition:all .2s ease;
+    box-shadow: rgba(0, 0, 0, 0.267) 3px 5px 5px 3px;
+}
+.container button:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: var(--verde-claro);
+    color: #ffffff;
+    -webkit-transform:scale(1.25);
+}
+
+.informacion-precio p{
+    margin: 0.5rem 0rem 0.5rem 0rem;
+    font-family: "Roboto", sans-serif;
+}
+
+
+/* FOOTER */
+.container-2{
+    width: 100%;
+}
+.footer{
+    margin-top: 3rem;
+    background-color: var(--verde-oscuro);
+    padding:60px 0;
+}
+.footer-row{
+    display:flex;
+    justify-content: center;
+}
+
+.footer-links{
+    width: 15%;
+    padding: 0 10px;
+}
+.footer-desc{
+    text-align: center;
+    width: 35%;
+    margin: 0 15rem 0 8.7rem;
+}
+.footer-desc h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--blanco);
+    font-style: oblique;
+}
+.footer-desc p{
+    font-family: "Roboto", sans-serif;
+    color: var(--blanco);
+    font-weight: 200;
+    font-style: oblique;
+    font-size: 1.2rem;
+    
+    
+}
+
+.footer-links h4{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    border-bottom: 2px solid var(--blanco-suave);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-links ul li a{
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--blanco-suave);
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    transition: all .3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--blanco);
+    padding-left: 6px;
+}
+

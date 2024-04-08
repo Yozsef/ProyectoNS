@@ -1,0 +1,173 @@
+* {
+	box-sizing: border-box;
+    margin: 0px;
+}
+:root{
+    --blanco-suave: #f1f5e3;
+    --verde-claro: #9dc08b;
+    --verde: #609966;
+    --verde-oscuro: #40513b;
+    --azul: #1d538a;
+    --blanco: #ffffff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.lado-derecho{
+    display: flex;
+    width: 50%;
+    margin: 1em 2rem 0rem 8rem;
+}
+header{
+    width: auto;
+    height: 4rem;
+    background-color: var(--verde);
+    overflow: hidden;
+}
+header img{
+    float: left;
+    padding: 0%;
+    margin: 0.5rem 0rem 1rem 1rem;
+    width: 5%;
+}
+header a{
+    color: white;
+    text-decoration: none;
+}
+header button{
+    margin: 1.2rem 3rem 1rem 1rem;
+    float: right;
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size:130%;
+    color: #ffffff;
+    font-weight: 700;
+    -webkit-transition:all .2s ease;
+}
+header button:hover{
+    
+    background-size:cover;
+    -webkit-transform:scale(1.25);
+}
+
+.lado {
+	
+}
+
+main {
+    
+    flex: 1;
+    
+    display: flex;
+}
+
+aside {
+	
+	width: 200px;
+}
+
+.page-content {
+	
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.title-container {
+	
+    display: flex;
+    margin: 10px;
+    
+}
+
+.table-container {
+	
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.title2-container {
+	
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    
+}
+
+table {
+	
+    width: 100%;
+}
+    .profile {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .profile td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .profile tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .profile2 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .profile2 td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .profile2 tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+
+    .sidebar_nav{
+        height: 100%;
+        width: 190px;
+        padding-top: 20px; 
+        left: 0;
+        background-color: #1d538a;
+        
+        
+    }
+    
+    .sidebar_nav a{
+        padding: 20px; /* Aleja los botones */
+        text-decoration: none; /* No lo subraya */
+        color: black;
+        font-size:13px; /* tamaño de letra del sidebar */
+        color: white; /* el texto sea de colores */
+        display: flex; /* Utilizamos flexbox para alinear verticalmente */
+        align-items: center; /* Alineamos verticalmente el contenido */
+       
+        
+    }
+    
+    
+    
+    
+    .sidebar_nav a:hover{
+        font-weight: 500;
+        background-color: black;
+        border-radius: 5px;
+        padding: 20px;
+        
+    }

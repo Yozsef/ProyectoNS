@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Tarjeta de Crédito</title>
+    <link rel="stylesheet" type="text/css" href="../css/AnadirTarjeta.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../../../dist/imagenes/NovaScript_logo.png">
+        <button> <a href="">Salir</a> </button>
+        <button><a href="Catalogo.html">Catalogo</a></button>
+    </nav>
+
+    <h2>Formulario de Tarjeta de Crédito</h2>
+
+    <form id="paymentForm" action="#" method="post">
+        <label for="cardNumber">Número de Tarjeta:</label><br>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="Número de Tarjeta" required><br>
+        <span id="cardNumberError" class="error"></span><br>
+
+        <label for="expiryDate">Fecha de Expiración:</label><br>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required><br>
+        <span id="expiryDateError" class="error"></span><br>
+
+        <label for="securityCode">Código de Seguridad:</label><br>
+        <input type="text" id="securityCode" name="securityCode" placeholder="CVC/CVV" required><br>
+        <span id="securityCodeError" class="error"></span><br>
+
+        <label for="cardHolderName">Nombre en la Tarjeta:</label><br>
+        <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Nombre" required><br>
+        <span id="cardHolderNameError" class="error"></span><br>
+
+        <button type="submit" id="submitButton">Enviar</button>
+    </form>
+
+    <div id="successMessage" style="display: none;">Info almacenada</div>
+
+    <script src="../js/AnadirTarjeta.js"></script>
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-row">
+
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="">Nosotros</a></li>
+                        <li><a href="">Nuestros servicios</a></li>
+                        <li><a href="">Afiliate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-desc">
+                    <h2>NovaScript</h2>
+                    <p>En NovaScript, nos dedicamos a trascender los límites de la creatividad y la innovación en el mundo digital. Somos más que una empresa de desarrollo de páginas web; somos artesanos digitales que tejen líneas de código para dar vida a tus visiones. Desde la creación de plataformas web elegantes hasta la implementación de soluciones tecnológicas vanguardistas, en NovaScript estamos comprometidos a impulsar la transformación digital de tu negocio.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="">Preguntas</a></li>
+                        <li><a href="">Compras</a></li>
+                        <li><a href="">Envios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

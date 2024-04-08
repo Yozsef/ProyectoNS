@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/perfilstyle.css">
+    <title>Editar Perfil</title>
+    <script defer src="../js/perfiljs.js"></script>
+</head>
+
+<body>
+    <nav>
+        <img src="../../../dist/imagenes/NovaScript_logo.png">
+        <button> <a href="">Salir</a> </button>
+        <button><a href="Catalogo.html">Catalogo</a></button>
+
+    </nav>
+
+    <div class="contenedor-perfil">
+        <div class="informacion-usuario">
+            <img src="../../../dist/imagenes/perfil.png">
+            <p>Nombre: Alfredo Gonzales Fernandez</p>
+            <p>Cedula: 119328485</p>
+            <p>Correo electronico: alfredo30@gmail.com</p>
+            <p>Numero de telefono: 0000-0000</p>
+            <p>Tipo de Usuario: Cliente</p>
+            <p>Fecha de Naciemiento: 3/3/1999</p>
+
+
+        </div>
+        <div class="editar-historial">
+            <div class="botones">
+                <button>Editar Perfil</button>
+                <button><a href="historial.html"> Historial de compras </a></button>
+            </div>
+            <form action="" class="formulario" id="formulario">
+                <div class="input-control">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form__field" placeholder="Nombre" name="nombre" id='nombre' >
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="usuario">Usuario</label>
+                    <input type="number" class="form__field" placeholder="Usuario" name="usuario" id='usuario' >
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="correo">Correo Electronico</label>
+                    <input type="text" class="form__field" placeholder="Correco Electronico" name="correo" id='correo'
+                        >
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="telefono">Numero de telefono</label>
+                    <input type="text" class="form__field" placeholder="Numero de telefono" name="telefono"
+                        id='telefono' >
+                    <div class="error"></div>
+                </div>
+
+                <h2>Cambiar contraseña</h2>
+
+                <div class="input-control">
+                    <label for="password">Escriba su contraseña actual</label>
+                    <input type="password" class="form__field" name="password" id='password' >
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-control">
+                    <label for="password-repeat">Nueva contraseña</label>
+                    <input type="password" class="form__field" name="password-repeat" id='password-repeat' >
+                    <div class="error"></div>
+                </div class="input-control">
+
+                <div class="input-control">
+                    <label for="password-confirmation">Confirme su nueva contraseña</label>
+                    <input type="password" class="form__field" name="password-confirmation" id='password-confirmation'>
+                    <div class="error"></div>
+                </div>
+
+                <button type="submit" class="guardar-cambios" id="boton">Guardar cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-row">
+
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="">Nosotros</a></li>
+                        <li><a href="">Nuestros servicios</a></li>
+                        <li><a href="">Afiliate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-desc">
+                    <h2>NovaScript</h2>
+                    <p>En NovaScript, nos dedicamos a trascender los límites de la creatividad y la innovación en el
+                        mundo digital. Somos más que una empresa de desarrollo de páginas web; somos artesanos digitales
+                        que tejen líneas de código para dar vida a tus visiones. Desde la creación de plataformas web
+                        elegantes hasta la implementación de soluciones tecnológicas vanguardistas, en NovaScript
+                        estamos comprometidos a impulsar la transformación digital de tu negocio.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="">Preguntas</a></li>
+                        <li><a href="">Compras</a></li>
+                        <li><a href="">Envios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
