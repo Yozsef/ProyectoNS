@@ -1,5 +1,8 @@
+
 let express=require("express"); 
 let path=require("path");
+require('./database')
+
 
 let directorioActual = __dirname; 
 let carpetaRaiz = "webroot"; 
