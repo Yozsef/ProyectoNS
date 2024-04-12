@@ -10,6 +10,7 @@
     --lightgren: #9dc08b;
     --green: #609966;
     --beige: #EDF1d6;
+    --darkbeige: rgb(233, 237, 201);
 }
 
 body {
@@ -18,92 +19,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*  ------------------ Encabezado ------------------  */
-.encabezado {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--green);
-    padding: 10px;
-    margin-bottom: 30px;
-}
 
-#contenidoIzquieda {
-    display: flex;
-    align-items: center;
-}
-
-#menu {
-    width: 100%;
-    height: 50px;
-    margin-right: 10px;
-
-}
-
-#contenidoCentral {
-    padding-left: 15%;
-    display: flex;
-    align-items: center;
-}
-
-h6 {
-    font-size: 50px;
-    height: 50px;
-}
-
-#potatoes {
-    width: 60px;
-    height: 60px;
-
-}
-
-#trolley {
-
-    width: 45px;
-    height: 45px;
-    padding-right: 10px;
-    -webkit-transition:all .2s ease;
-}
-#trolley:hover{
-    -webkit-transform:scale(1.25);
-}
-
-#contenidoDerecha {
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-}
-
-#contenidoDerecha button {
-    margin: 1.2rem 3rem 1rem 1rem;
-    float: right;
-    background: none;
-    border: none;
-    font-family: "Roboto", sans-serif;
-    font-size:130%;
-    color: #ffffff;
-    font-weight: 700;
-    -webkit-transition:all .2s ease;
-
-
-}
-#contenidoDerecha a{
-    color: white;
-    text-decoration: none;
-}
-#contenidoDerecha button:hover {
-    background-size:cover;
-    -webkit-transform:scale(1.25);
-}
-
-/*  ------------------ Contenido central ------------------  */
-
-
-#vendedor {
-    margin: 3%;
-}
 
 /*  ------------------ Apartado de arriba ------------------  */
 
@@ -112,9 +28,16 @@ h6 {
 
 }
 
-#profielImg {
-    width: 55px;
-    height: 55px;
+#profileImg {  
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */  
+}
+
+#vendedor{
+    margin-top: 1%;
+    margin-left: 3%;
+    margin-right: 3%;
+
 }
 
 #vendedorDerecha h3 {
@@ -125,9 +48,9 @@ h6 {
 #vendedorDerecha {
     display: flex;
     justify-content: center;
-    /* Center vertically */
     align-items: center;
-    /* Center horizontally */
+    margin-left: 2%;
+
 
 }
 
@@ -148,9 +71,10 @@ h6 {
 }
 
 #vendedor hr {
-    border-style: Dashed;
-    margin-top: 10px;
+    border-top: 3px dashed #000; 
+    margin-top: 20px;
     margin-bottom: 20px;
+   
 }
 
 /*  ------------------ Producto ------------------  */
@@ -167,6 +91,11 @@ h6 {
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
+   border-radius:3%;
+    background: var(--darkbeige);
+    margin: 1%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); 
+
 }
 #producto a{
     text-decoration: none;
@@ -174,10 +103,12 @@ h6 {
 }
 #producto img {
     padding: 5px;
-    border: 5px solid #555;
+    border: 3px solid #555;
+    border-radius: 10px;
     width: 200px;
     height: 200px;
     cursor: pointer;
+    margin-bottom: 6%;
     
 }
 
