@@ -29,8 +29,8 @@ body {
 }
 
 #profileImg {  
-    width: 50px; /* Adjust the width as needed */
-    height: 50px; /* Adjust the height as needed */  
+    width: 50px; 
+    height: 50px; 
 }
 
 #vendedor{
@@ -64,19 +64,6 @@ body {
     cursor: pointer;
 }
 
-#flip {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-
-}
-
-#vendedor hr {
-    border-top: 3px dashed #000; 
-    margin-top: 20px;
-    margin-bottom: 20px;
-   
-}
-
 /*  ------------------ Producto ------------------  */
 
 #lineaProducto {
@@ -91,7 +78,7 @@ body {
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-   border-radius:3%;
+    border-radius:3%;
     background: var(--darkbeige);
     margin: 1%;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); 

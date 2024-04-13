@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+    --blue: #1d538a;
+    --darkgreen: #40513b;
+    --lightgren: #9dc08b;
+    --green: #609966;
+    --beige: #EDF1d6;
+    --darkbeige: rgb(233, 237, 201);
+}
+
+body {
+    background-color: beige;
+    background-color: var(--beige);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*  -----------------------------------  */
+
+#contenidoArriba {
+    display: flex;
+
+}
+
+#profileImg {  
+    width: 50px; 
+    height: 50px;
+}
+
+#vendedor{
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 3%;
+    padding-bottom: 2%;
+}
+
+#vendedorDerecha h3 {
+    padding-left: 30px;
+    font-size: 30px
+}
+
+#vendedorDerecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+
+
+}
+
+#vendedorIzquierda {
+    margin-left: auto;
+}
+
+#vendedorIzquierda img {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+}
+
+/* ------------- CAjA --------------- */
+
+#caja{
+    background-color: lightgray;
+    width: 1500px;
+    height: 600px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); 
+    margin: auto;
+
+}
+
+#caja h2{
+    padding: 20px;
+}
+
+form {
+    padding: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: content-box;
+
+    border: hidden;
+    
+}
+
+
+input[type="submit"] {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--blue);
+}
+
+
+input[type="file"] {
+    margin-bottom: 15px;
+}
