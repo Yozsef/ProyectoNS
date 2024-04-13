@@ -23,7 +23,7 @@ body{
 nav{
     width: auto;
     height: 4rem;
-    background-color: var(--verde);
+    background-color: var(--azul);
     overflow: hidden;
 }
 nav img{
