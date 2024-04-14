@@ -86,6 +86,8 @@ main {
 
 #vendedor {
     font-size: 200%;
+    font-weight: bold;
+
 }
 
 #division {
@@ -134,14 +136,97 @@ main {
 
 .FotoProducto img {
     max-width: 40%;
-    /* Asegura que la imagen no supere el ancho del contenedor */
     max-height: 40%;
 }
 
 hr {
-    border-top: 2px dashed;
+    border-top: 2px line;
     margin: auto;
-    width: 99%;
+
+}
+
+/* ------------------ POP UP ------------------ */
+.likert li {
+    margin: 0 5px;
+    float: left;
+    list-style-type: none;
+    margin-left: 1%;
+  }
+
+  .likert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-popup{
+    background-color: var(--green);
+    width: 40%;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-container label{
+    font-weight: bold;
+    color: white;
+    padding: 3%;
+}
+
+.form-container input {
+    margin: 0 5px;
+}
+.form-container textarea {
+    width: calc(100% - 20px);
+    /* Subtracting 20px for padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    overflow: auto;
+}
+
+
+
+
+.form-container button {
+    background-color: var(--blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button.cancel {
+    background-color: var(--red);
+}
+
+.form-container button:hover {
+    background-color: #0d355d;
+}
+
+.form-container button.cancel:hover {
+    background-color: #b30000;
 }
 
 /*  ------------------ COMMENT ------------------  */
@@ -149,11 +234,12 @@ section {
     padding: 4%;
     padding-left: 20%;
     padding-right: 20%;
+
 }
 
 .comentarios {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--lightgren);
+    background-color: rgb(236, 236, 236);
 }
 
 #titulo{
