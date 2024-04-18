@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+:root{
+    --blanco-suave: #f1f5e3;
+    --verde-claro: #9dc08b;
+    --verde: #609966;
+    --verde-oscuro: #40513b;
+    --azul: #1d538a;
+    --blanco: #ffffff;
+}
+body{
+    width: auto;
+    height: auto;
+    margin: auto;
+    background-color: var(--blanco-suave);
+}
+.Menu{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.wrap{
+    display: grid;
+    width: 30%;
+    margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    grid-auto-rows: minmax(100px, auto);
+}
+.wrap button{
+    margin: 2rem 2rem 0rem 1rem;
+    padding: 0rem 1rem 0rem 1rem;
+    height: 5rem;
+    border:none;
+    border-radius: 2px;
+    background-color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    -webkit-transition:all .2s ease;
+    box-shadow: rgba(0, 0, 0, 0.267) 3px 5px 5px 3px;
+    cursor: pointer;
+}
+
+button[value="Clientes"]:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #62c462;
+    color: white;
+    -webkit-transform:scale(1.25);
+}
+button[value="Vendedores"]:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #6289c4;
+    color: white;
+    -webkit-transform:scale(1.25);
+}
+button[value="Tramos"]:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #62b0c4;
+    color: white;
+    -webkit-transform:scale(1.25);
+}
+button[value="Solicitudes"]:hover{
+    animation: bubble 0.4s ease-out;
+    background-color: #f8c842;
+    color: white;
+    -webkit-transform:scale(1.25);
+    
+}
