@@ -17,14 +17,11 @@ var htmlSuperior = `<!DOCTYPE html>
         </div>
 
         <div id="contenidoCentral">
-            <button><a href="landingPage.html">Vegie Place</a></button>
-           <a href="landingPage.html"><img id="potatoes" src="../../../dist/imagenes/potatoes.png" alt=""></a>  
+            <button><a href="landingPage.html">Vegie Place</a></button> 
         </div>
 
         <div id="contenidoDerecha">
             <a href="carritoDeCompras.html"><img id="trolley" src="../../../dist/imagenes/trolley.png" alt=""></a>
-            <button><a href="dashboard.html">Administracion</a></button>
-            <button><a href="Calificar.html">Calificar</a></button>
             <button> <a href="">Sign up</a></button>
             <button><a href="">Login </a></button>
         </div>
