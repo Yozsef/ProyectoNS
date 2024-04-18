@@ -1,0 +1,21 @@
+
+VentasApp: {
+	Productos: {
+		_id: "",
+		nombre: "",
+		precio: 0.0,
+		cantidad: 0,
+		categoria: "",
+		imageUrl: "/productos/imagenes/xxxxxxx.png"
+	},
+	Ventas: {
+		_id: "",
+		fecha: new Date(),
+		estado: ""
+	},
+	DetalleVenta: {
+		idVenta: "",
+		idProducto: "",
+		cantidadVendida: 0
+	}
+}

@@ -7,6 +7,7 @@
     <title>Pagina Vendedor</title>
     <link rel="stylesheet" href="../css/paginaVendedor.css">
     <script defer src="../js/paginaVendedor.js"></script>
+    <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,39 +20,8 @@
     <div class="contenedor-productos">
         <form action="" id="formulario">
             <h2>Agregar/Editar Productos</h2>
-            <div class="wrapper">
-                <div class="input-control">
-                    <label>Nombre producto: </label>
-                    <input type="text" class="form__field" placeholder="Nombre" id="nombreProducto">
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label>Precio: </label>
-                    <input type="number" class="form__field" placeholder="Precio" id="precioProducto" >
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label>Cantidad: </label>
-                    <input type="number" class="form__field" placeholder="Cantidad" id="cantidadProducto" >
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label>Categoria: </label>
-                    <input type="text" class="form__field" placeholder="Categoria" id="categoriaProducto">
-                    <div class="error"></div>
-                </div>
-                <div class="input-control">
-                    <label for="file-upload" class="custom-file-input" value="imagen">Subir imagen producto </label>
-                    <input type="file" id="file-upload">
-                </div>
-                <div class="input-control">
-                    <label>ID: </label>
-                    <input type="number" class="form__field" placeholder="ID" id="idProducto">
-                    <div class="error"></div>
-                </div>
-            </div>
             <div class="botones">
-                <button value="agregar" id="agregarBtn">Agregar</button>
+                <button value="agregar" id="agregarBtn"><a href="agregarProductos.html"> Agregar </a></button></a>
                 <button value="buscar" id="buscarBtn">Buscar</button>
                 <button value="editar">Editar</button>
                 <button value="eliminar">Eliminar</button>
@@ -68,27 +38,9 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody" >
-                        <tr>
-                            <td>1</td>
-                            <td>Producto 1</td>
-                            <td>$10.00</td>
-                            <td>5</td>
-                            <td>Categoría 1</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Producto 2</td>
-                            <td>$15.00</td>
-                            <td>10</td>
-                            <td>Categoría 2</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Producto 3</td>
-                            <td>$20.00</td>
-                            <td>3</td>
-                            <td>Categoría 1</td>
-                          </tr>
+                        <td>
+
+                        </td>
                     </tbody>
                 </table>
             </div>
@@ -123,5 +75,4 @@
         </div>
     </footer>
 </body>
-
 </html>
