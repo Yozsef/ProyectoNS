@@ -9,27 +9,23 @@
     <title>Calificar</title>
 </head>
 
-<body class="cal"> <!-- PARTE DE  -->
-    <nav>
-        <img src="../../../dist/imagenes/NovaScript_logo.png">
-        <button> <a href="">Salir</a> </button>
-        <button><a href="Catalogo.html">Catalogo</a></button>
+<body>
 
-    </nav>
+    <script src="../js/Header.js"></script>
+
+
+
     <main class="calificacion">
         <div class="infoProd">
-            <div id="producto">
-                Nombre del Producto
-            </div>
             <div id="vendedor">
-                Nombre vendedor
+                Fresas del Cielo
             </div>
             <div>
                 <div id="division">
                     <div>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                         </script>
-                        <canvas id="myChart" width="400" height="200"></canvas>
+                        <canvas id="myChart" width="400" height="150"></canvas>
                         <script src="..//js/graficoBarras.js"> </script>
                     </div>
                     <div id="promedio">
@@ -38,23 +34,49 @@
                 </div>
             </div>
             <div class="resena">
-                <button>Escribir Resena</button>
+                <button class="open-button" onclick="openForm()">Escribir Resena</button>
             </div>
-           
         </div>
 
         <div class="FotoProducto">
             <img src="../../../dist/imagenes/test.png" alt="">
         </div>
-       
+
     </main>
+
+    <!-- POP UP -->
+    <script src="../js/calificar.js"></script>
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Luis Cuadra</h1>
+            <ul class="likert">
+                <li> 1 </li>
+                <li><input type="radio" name="guilty" value="1" /></li>
+                <li><input type="radio" name="guilty" value="2" /></li>
+                <li><input type="radio" name="guilty" value="3" /></li>
+                <li><input type="radio" name="guilty" value="4" /></li>
+                <li><input type="radio" name="guilty" value="5" /></li>
+                <li> 5 </li>
+            </ul><br>
+            <label for="description">Descripcion:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+           
+            <label for="image">Imagen del producto:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+          
+            <button type="submit" class="btn">Post</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
 
     <hr> <!-- COMENTARIOS -->
 
     <section class="comentarios">
+        <div id="titulo"> Reseñas del producto</div>
         <div>
             <div id="division">
-                <img id="profileImg" src="../../../dist/imagenes/profile.png" alt="">
+                <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
                 <div id="comentInfo">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
@@ -67,7 +89,7 @@
                         del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
                         de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino
                         que tambien ingresó como texto de rel</p>
-                    
+
                     <img src="../../../dist/imagenes/test.png" alt="">
                 </div>
             </div>
@@ -75,7 +97,7 @@
 
         <div>
             <div id="division">
-                <img id="profileImg" src="../../../dist/imagenes/profile.png" alt="">
+                <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
                 <div id="comentInfo">
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>

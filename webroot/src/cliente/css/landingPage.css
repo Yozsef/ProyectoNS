@@ -29,44 +29,28 @@ h1{
     margin-left: 25px;
     font-family: "Roboto", sans-serif;
 }
-nav{
-    width: auto;
-    height: 4rem;
-    background-color: var(--verde);
-    overflow: hidden;
-}
-nav img{
-    float: left;
-    padding: 0%;
-    margin: 0.5rem 0rem 1rem 1rem;
-    width: 5%;
-    border-radius: 1rem;
-}
-nav a{
-    color: white;
-    text-decoration: none;
-}
-nav button{
-    margin: 1.2rem 3rem 1rem 1rem;
-    float: right;
-    background: none;
-    border: none;
-    font-family: "Roboto", sans-serif;
-    font-size:130%;
-    color: #ffffff;
-    font-weight: 700;
-    -webkit-transition:all .2s ease;
-}
-nav button:hover{
-    
-    background-size:cover;
-    -webkit-transform:scale(1.25);
-}
 
 .separador{
     width: 100%;
     border: 2px #40513b solid ;
 }
+/* -------- */
+
+.Vendedores a{
+    color: black;
+    text-decoration: none;
+}
+
+.Vendedores button{
+    background: none; 
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 120%; 
+    color: black;
+    font-weight: 800;
+    cursor: pointer; 
+}
+
 .productos{
     display: flex;
     background-color: var(--blanco);

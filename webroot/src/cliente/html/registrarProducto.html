@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registrar Producto</title>
+    <link rel="stylesheet" href="../css/registrarProducto.css" />
+</head>
+
+
+
+<body>
+    <script src="../js/Header.js"></script>
+
+    <div id="vendedor">
+        <div id="contenidoArriba">
+
+            <div id="vendedorDerecha">
+                <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
+                <h3>Fresas del Cielo</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="caja">
+
+        <h2>Regsistro de Producto</h2>
+
+        <form action="">
+            
+            <label for="title">Nombre del producto:</label><br>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <label for="price">Precio del producto:</label><br>
+            <input type="number" id="price" name="price" min="0" step="0.01" required><br><br>
+            
+            <label for="amount">Cantidad:</label><br>
+            <input type="number" id="amount" name="amount" min="0" required><br><br>
+            
+            <label for="description">Descripcion:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+            
+            <label for="image">Imagen del producto:</label><br>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+   
+
+</body>
+</html>
