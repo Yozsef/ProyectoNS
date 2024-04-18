@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar tramo</title>
+    <link rel="stylesheet" href="../css/crudstyle.css">
+</head>
+<body>
+    <h2>Agregar Tramo</h2>
+    <div class="contenedor-productos">
+        
+           
+        <form action="" id="formulario">
+            <div class="wrapper">
+                <div class="input-control">
+                    <label>Nombre tramo: </label>
+                    <input type="text" class="form__field" placeholder="Nombre" id="nombreTramo" name="nombre">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Vendedor: </label>
+                    <input type="text" class="form__field" placeholder="Vendedor" id="vendedor" name="vendedor">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label for="file-upload" class="custom-file-input" value="imagen">Subir imagen </label>
+                    <input type="file" id="file-upload">
+                    <img class="imageUrlPreview" style="width: 100px; height: 100px;">
+                </div>
+            </div>
+            
+            <div class="botonAgregar">
+                 <button type="submit" value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
+            </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
