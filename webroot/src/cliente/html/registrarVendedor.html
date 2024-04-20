@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registrar Vendedor</title>
+    <link rel="stylesheet" href="../css/registrarVendedor.css" />
+    <script defer src="../js/registrarVendedor.js"></script>
+
+</head>
+
+
+
+<body>
+    <script src="../js/Header.js"></script>
+
+    <div id="contenedor">
+
+        <div id="caja">
+
+            <h2>Registro Vendedor</h2>
+
+            <form action="" id="formulario">
+
+                <div class="input-control">
+                    <label>Nombre </label>
+                    <input type="text" placeholder="Nombre" id="nombre">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Nombre del negocio </label>
+                    <input type="text" placeholder="Nombre del negocio" id="nombreNegocio">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Cedula: </label>
+                    <input type="number" placeholder="1 2345 6789" id="cedula">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Correo: </label>
+                    <input type="text" placeholder="SuCorreo@correo.com" id="correo">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Numero de telefono: </label>
+                    <input type="number" placeholder="1234-5678" id="numTelefono">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label>Direccion: </label>
+                    <input type="text" placeholder="Cartago, Paraiso" id="direccion">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
+                    <label for="fileUpload" class="custom-file-input">Permisos municipales</label><br>
+                    <input type="file" id="fileUpload">
+                    <div id="file-name"></div>
+                    <div class="error"></div>
+                </div>
+
+                <br><br>
+                <input type="submit" value="Enviar Solicitud">
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
