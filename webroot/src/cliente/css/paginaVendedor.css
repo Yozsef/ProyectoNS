@@ -56,29 +56,44 @@ nav button:hover{
 
 
 /* BODY */
-
+.fa-solid{
+    cursor: pointer;
+}
 .contenedor-productos{
     width: 50%;
     overflow: hidden;
     height: auto;
     margin: 2rem 17rem 0rem 27rem;
     padding: 2rem;
-    display: flex;
+    display: block;
     background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    justify-content: center;
 
 }
-form{
-    width: auto;
+.contenedor-productos2{
+    width: 50%;
+    overflow: hidden;
+    height: auto;
+    margin: 2rem 17rem 0rem 27rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
 }
+
 form img{
-    margin: 1rem 2.5rem 1rem 2.5rem;
+    margin: 1rem 0rem 1rem 2rem;
 }
 h2{
     margin: 2rem 0rem 0rem 0rem;
     font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    font-style: oblique;
     text-align: center;
 }
 .wrapper {
@@ -99,7 +114,7 @@ h2{
 	display: block;
 	font-size: 12px;
 	padding: 10px;
-	width: 90%;
+	width:auto;
 }
 input[type="file"] {
     display: none;
@@ -133,7 +148,7 @@ input::-webkit-inner-spin-button {
 	display: block;
 	font-size: 12px;
 	padding: 10px;
-	width: 90%;
+	width: auto;
     cursor: pointer;
     -webkit-transition:all .2s ease;
 }
@@ -148,16 +163,18 @@ label[for="file-upload"]{
     -webkit-transform:scale(1.25);
 }
 
-
+button{
+    cursor: pointer;
+}
 .botones{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     
 }
 .botones a{
     text-decoration: none;
-    color: black;
+    color: #000000;
 }
 .botonAgregar{
     width: 100%;
@@ -168,7 +185,8 @@ label[for="file-upload"]{
 .botones button{
     margin: 2rem 2rem 0rem 1rem;
     padding: 0rem 1rem 0rem 1rem;
-    height: 2.3rem;
+    height: 2.7rem;
+    width: 20%;
     border:none;
     border-radius: 2px;
     background-color: white;
@@ -198,26 +216,8 @@ label[for="file-upload"]{
 }
 .botones button[value="agregar"]:hover{
     animation: bubble 0.4s ease-out;
-    background-color: #62c462;
-    color: white;
-    -webkit-transform:scale(1.25);
-}
-.botones button[value="buscar"]:hover{
-    animation: bubble 0.4s ease-out;
-    background-color: #6284c4;
-    color: white;
-    -webkit-transform:scale(1.25);
-}
-.botones button[value="editar"]:hover{
-    animation: bubble 0.4s ease-out;
-    background-color: #e6c614;
-    color: white;
-    -webkit-transform:scale(1.25);
-}
-.botones button[value="eliminar"]:hover{
-    animation: bubble 0.4s ease-out;
-    background-color: #b61a05;
-    color: white;
+    background-color: #39ab39;
+    color: white !important;
     -webkit-transform:scale(1.25);
 }
 
@@ -227,9 +227,11 @@ label[for="file-upload"]{
 
 .tabla{
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 .tabla table{
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
     margin-bottom: 2rem;
     

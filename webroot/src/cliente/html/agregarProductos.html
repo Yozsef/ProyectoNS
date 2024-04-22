@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar productos</title>
     <link rel="stylesheet" href="../css/paginaVendedor.css">
-    <script defer src="../js/agregarProducto.js"></script>
+    <script defer src="../js/paginaVendedor.js"></script>
 </head>
 <body>
     <script src="../js/Header.js"></script>
     <h2>Agregar Productos</h2>
-    <div class="contenedor-productos">
-        
-           
-        <form action="" id="formulario">
+    <div class="contenedor-productos2"> 
+        <form>
             <div class="wrapper">
                 <div class="input-control">
                     <label>Nombre producto: </label>
@@ -37,21 +35,22 @@
                 </div>
                 <div class="input-control">
                     <label for="file-upload" class="custom-file-input" value="imagen">Subir imagen producto </label>
-                    <input type="file" id="file-upload">
+                    <input type="file" id="file-upload" name="imageUrl" accept="*/*">
                     <img class="imageUrlPreview" style="width: 100px; height: 100px;">
                 </div>
                 <div class="input-control">
                     <label>ID: </label>
-                    <input type="number" class="form__field" placeholder="ID" id="idProducto" name="_id">
+                    <input type="text" class="form__field" placeholder="ID" id="idProducto" name="_id">
                     <div class="error"></div>
                 </div>
             </div>
             <div class="botonAgregar">
-                 <button type="submit" value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
+                 <button value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
             </div>
             </div>
         </form>
     </div>
     <script src="../js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

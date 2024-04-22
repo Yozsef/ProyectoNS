@@ -4,27 +4,113 @@ const precioProducto = document.getElementById('precioProducto');
 const cantidadProducto = document.getElementById('cantidadProducto');
 const categoriaProducto = document.getElementById('categoriaProducto');
 const idProducto = document.getElementById('idProducto');
-const buscarBtn = document.getElementById('buscarBtn');
+const btnGuardar = document.getElementById('btnGuardarProductos');
 
 
+
+
+
+
+
+const setError = (element, message) => {
+	const inputControl = element.parentElement;
+	const errorDisplay = inputControl.querySelector('.error')
+
+	errorDisplay.innerText = message;
+	inputControl.classList.add('error')
+	inputControl.classList.remove('succes')
+}
+
+const setSuccess = element => {
+	const inputControl = element.parentElement;
+	const errorDisplay = inputControl.querySelector('.error');
+
+	errorDisplay.innerText = '';
+	inputControl.classList.add('success');
+	inputControl.classList.remove('error');
+}
+
+const nombreValidacion = nombreProducto => {
+	const re = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
+	return re.test(String(nombreProducto).toLowerCase());
+}
+
+const validateInputs = () => {
+	const nombreProductoValue = nombreProducto.value.trim();
+	const precioProductoValue = precioProducto.value.trim();
+	const cantidadProductoValue = cantidadProducto.value.trim();
+	const categoriaProductoValue = categoriaProducto.value.trim();
+	const idProductoValue = idProducto.value.trim();
+	let nombreBol = false;
+	let precioBol = false;
+	let cantidadBol = false;
+	let categoriaBol = false;
+	let idProductoBol = false;
+
+
+	if (nombreProductoValue === '') {
+		setError(nombreProducto, 'El nombre es requerido')
+	} else if (!nombreValidacion(nombreProductoValue)) {
+		setError(nombreProducto, 'Necesita ingresar un nombre valido')
+	} else {
+		setSuccess(nombreProducto)
+		nombreBol = true;
+	}
+
+	if (precioProductoValue === '') {
+		setError(precioProducto, 'El precio es requerido')
+	} else {
+		setSuccess(precioProducto)
+		precioBol = true;
+	}
+
+	if (cantidadProductoValue === '') {
+		setError(cantidadProducto, 'La cantidad es requerida')
+	} else if (cantidadProductoValue >= 1000) {
+		setError(categoriaProducto, 'No puede ingresar mas de 1000 productos')
+	} else {
+		setSuccess(cantidadProducto)
+		cantidadBol = true
+	}
+
+	if (categoriaProductoValue === '') {
+		setError(categoriaProducto, 'La categoria es requerida')
+	} else if (!nombreValidacion(categoriaProductoValue)) {
+		setError(categoriaProducto, 'Necesita ingresar una categoria valida')
+	} else {
+		setSuccess(categoriaProducto)
+		categoriaBol = true;
+	}
+
+	if (idProductoValue === '') {
+		setError(idProducto, 'El ID es requerido')
+	} else {
+		setSuccess(idProducto)
+		idProductoBol = true;
+	}
+	if (nombreBol == true && precioBol == true && cantidadBol == true && categoriaBol == true && idProductoBol == true) {
+		return true;
+	}
+
+
+}
 // BUSCAR PRODUCTOS
 
-async function cargarTablaProductos(){
-	try{
-		
+async function cargarTablaProductos() {
+	try {
 		var tablaProductosBody = document.querySelector(".tabla table tbody");
 		var respuestaServidor = await fetch("/api/listarproductos");
 		var listaProductos = await respuestaServidor.json();
-					
+
 		var numeroFilas = listaProductos.length; // número elementos
-		
+
 		tablaProductosBody.innerHTML = ""; // esto "limpia" el contenido anterior
-		
+
 		//for(var n = 0; n < numeroFilas; n++){
-		for(var p of listaProductos){
-		
-			var elJSONenString = JSON.stringify(p); 
-		
+		for (var p of listaProductos) {
+
+			var elJSONenString = JSON.stringify(p);
+
 			var nuevaFila = `<tr>
 								<td>${p._id}</td>
 								<td>${p.nombre}</td>
@@ -33,37 +119,140 @@ async function cargarTablaProductos(){
 								<td>${p.categoria}</td>
 								<td>
 									<i class="fa-solid fa-pencil">
-										<a><span style="display: none;">${elJSONenString}</span></a>
+										<span style="display: none;">${elJSONenString}</span>
 									</i>
 								</td>
 							</tr>`;
-		
+
 			tablaProductosBody.innerHTML += nuevaFila;
 		}
-		
-		celdaContadorFilas.innerHTML = `Filas: ${numeroFilas}`;
-		
-		/*
-		var botonesEditar = document.querySelectorAll(".contenedorTabla .fa-pencil");
 
-		for(var boton of botonesEditar){
-			boton.addEventListener("click", function(event){
-			
+
+
+		var botonesEditar = document.querySelectorAll("tbody .fa-pencil");
+
+		for (var boton of botonesEditar) {
+			boton.addEventListener("click", function (event) {
+
 				var yo = event.target;
 				var miSpanInterno = yo.querySelector("span");
-				
+
 				sessionStorage.setItem("productoEditar", miSpanInterno.innerHTML);
-				
-				document.location.href = "/productos/configuracion/formularioproductos.html";
+
+				document.location.href = "agregarProductos.html";
 			});
 		}
-		*/
+
 	}
-	catch(error){
+	catch (error) {
 
 	}
 }
 
-window.onload = function( ){
-	cargarTablaProductos();
+async function enviarFormulario() {
+	//alert("Formulario enviado!!");
+
+	var formulario = document.querySelector(".contenedor-productos2 form");
+
+	var datosFormulario = new FormData(formulario);// multipart
+
+	var url = "?";
+	var productoSession = sessionStorage.getItem("productoEditar");
+	if (productoSession != null) {
+		url = "/api/actualizarproducto";
+		console.log('actualizar')
+	}
+	else {
+		url = "/api/guardarproducto";
+		console.log('guardar')
+	}
+
+	var respuestaServidor = await fetch(url, { method: "post", body: datosFormulario });
+	var respuesta = await respuestaServidor.json();
+
+
+	console.log("funciono")
+
+	Swal.fire({
+		title: "Productos",
+		text: respuesta.message,
+		icon: "success",
+
+	}).then(function () {
+		//window.location = "paginaVendedor.html";
+	});
+
+}
+function validarEdicion() {
+
+	var productoSession = sessionStorage.getItem("productoEditar");
+	var formulario = document.querySelector(".contenedor-productos2 form");
+	var inputId = formulario.querySelector("input[name='_id']");
+	var inputNombre = formulario.querySelector("input[name='nombre']");
+	var inputPrecio = formulario.querySelector("input[name='precio']");
+	var inputCantidad = formulario.querySelector("input[name='cantidad']");
+	var inputCategoria = formulario.querySelector("input[name='categoria']");
+
+	var imageUrlPreview = formulario.querySelector("img.imageUrlPreview");
+	//var inputImageUrl = formulario.querySelector("input[name='imageUrl']");
+
+	if (productoSession != null) { // EDITAR
+
+		var productoEditar = JSON.parse(productoSession);
+
+		inputId.value = productoEditar._id;
+		inputNombre.value = productoEditar.nombre;
+		inputPrecio.value = productoEditar.precio;
+		inputCantidad.value = productoEditar.cantidad;
+		inputCategoria.value = productoEditar.categoria;
+
+		//imageUrlPreview.src = productoEditar.imageUrl;
+
+	}
+}
+function irAgregar(){
+	sessionStorage.clear();
+	location.href='agregarProductos.html'
+}
+
+function inicializarPagina() {
+
+	/* código para formularioproductos.html*/
+	try {
+
+		btnGuardar.addEventListener('click', e => {
+			
+			e.preventDefault('submit')
+			if (validateInputs() == true) {
+				enviarFormulario();
+				console.log('hola')
+			}
+		})
+
+		
+		var inputImageUrl = document.querySelector(".contenedor-productos2 input[type='file']");
+		var imageUrlPreview = document.querySelector(".imageUrlPreview");
+
+		inputImageUrl.addEventListener("change", function (evt) {
+			const [file] = inputImageUrl.files;
+			if (file) {
+				imageUrlPreview.src = URL.createObjectURL(file);
+			}
+		});
+		
+
+		validarEdicion();
+	}
+	catch (error) { }
+	try {
+		cargarTablaProductos();
+	}
+	catch (error) { }
+	/* código para tablaproductos.html*/
+
+}
+
+window.onload = function () {
+	inicializarPagina();
+	
 }

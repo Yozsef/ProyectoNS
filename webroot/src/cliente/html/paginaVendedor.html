@@ -13,13 +13,9 @@
 <body>
     <script src="../js/Header.js"></script>
     <div class="contenedor-productos">
-        <form action="" id="formulario">
             <h2>Agregar/Editar Productos</h2>
             <div class="botones">
-                <button value="agregar" id="agregarBtn"><a href="agregarProductos.html"> Agregar </a></button></a>
-                <button value="buscar" id="buscarBtn">Buscar</button>
-                <button value="editar">Editar</button>
-                <button value="eliminar">Eliminar</button>
+                <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button>
             </div>
             <div class="tabla">
                 <table id="tablaProductos">
@@ -37,9 +33,13 @@
 
                         </td>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" id="totalFilas"></td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
-        </form>
     </div>
     <footer class="footer">
         <div class="container">

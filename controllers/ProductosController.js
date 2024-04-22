@@ -18,12 +18,12 @@ module.exports = function(app){
 
 	app.post("/api/guardarproducto", async function(request, response){
 
-		let { id, nombre, precio, cantidad, categoria } = request.body;
+		let {nombre, precio, cantidad, categoria } = request.body;
 
 		let imageUrl = elToqueDelaImagen(request);
 		
 		let nuevoProducto = {
-			_id: id,
+			_id: "",
 			nombre: nombre,
 			precio: parseFloat(precio),
 			cantidad: parseInt(cantidad),
@@ -47,7 +47,7 @@ module.exports = function(app){
 
 		// recoger los datos de producto
 		// let nombre = request.body.nombre;
-		let { _id, nombre, precio, cantidad } = request.body;
+		let { _id, nombre, precio, cantidad, categoria } = request.body;
 		let imageUrl = elToqueDelaImagen(request);
 
 		let productoEditado = {
@@ -55,7 +55,7 @@ module.exports = function(app){
 			nombre: nombre,
 			precio: parseFloat(precio),
 			cantidad: parseInt(cantidad),
-            categoria: categoria,
+			categoria: categoria,
 			imageUrl: imageUrl
 		};
 
