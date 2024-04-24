@@ -194,7 +194,7 @@ function validarEdicion() {
 	var inputCategoria = formulario.querySelector("input[name='categoria']");
 
 	var imageUrlPreview = formulario.querySelector("img.imageUrlPreview");
-	//var inputImageUrl = formulario.querySelector("input[name='imageUrl']");
+	var inputImageUrl = formulario.querySelector("input[name='imageUrl']");
 
 	if (productoSession != null) { // EDITAR
 
@@ -205,8 +205,7 @@ function validarEdicion() {
 		inputPrecio.value = productoEditar.precio;
 		inputCantidad.value = productoEditar.cantidad;
 		inputCategoria.value = productoEditar.categoria;
-
-		//imageUrlPreview.src = productoEditar.imageUrl;
+		imageUrlPreview.src = productoEditar.imageUrl;
 
 	}
 }

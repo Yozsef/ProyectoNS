@@ -85,7 +85,7 @@ function elToqueDelaImagen(request){
 	let extension = archivo.originalname.split(".");
 	extension = extension[extension.length - 1];
 
-	let imageUrl = `../dist/imagenes/${archivo.filename}.${extension}`;
+	let imageUrl = `/dist/imagenes/${archivo.filename}.${extension}`;
 
 	let viejaRuta = `${archivo.destination}${archivo.filename}`;
 	let nuevaRuta = `webroot/${imageUrl}`;
