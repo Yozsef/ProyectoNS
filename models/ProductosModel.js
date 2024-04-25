@@ -31,6 +31,16 @@ module.exports = function(){
 
 		return encontrados[0];
 	}
+	this.deleteOne = async function(_id){
+
+		let connection = await mongodb.connect();
+		let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
+		let respuesta = await tablaProductos.deleteOne({ _id: _id})
+
+		connection.close();
+
+		return respuesta;
+	}
 	this.create = async function(producto){
 
 		let connection = await mongodb.connect();

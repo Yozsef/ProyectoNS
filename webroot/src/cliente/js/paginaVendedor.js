@@ -5,10 +5,7 @@ const cantidadProducto = document.getElementById('cantidadProducto');
 const categoriaProducto = document.getElementById('categoriaProducto');
 const idProducto = document.getElementById('idProducto');
 const btnGuardar = document.getElementById('btnGuardarProductos');
-
-
-
-
+const titulo = document.getElementById('agregarh2')
 
 
 
@@ -121,24 +118,43 @@ async function cargarTablaProductos() {
 									<i class="fa-solid fa-pencil">
 										<span style="display: none;">${elJSONenString}</span>
 									</i>
+									
 								</td>
+								<td>
+								<i class="fa-solid fa-trash">
+										<span style="display: none;">${elJSONenString}</span>
+								</i> 
+								</td>
+
 							</tr>`;
 
 			tablaProductosBody.innerHTML += nuevaFila;
 		}
 
 
-
+		
 		var botonesEditar = document.querySelectorAll("tbody .fa-pencil");
+		var botonEliminar = document.querySelectorAll("tbody .fa-trash");
 
 		for (var boton of botonesEditar) {
 			boton.addEventListener("click", function (event) {
-
 				var yo = event.target;
 				var miSpanInterno = yo.querySelector("span");
 
 				sessionStorage.setItem("productoEditar", miSpanInterno.innerHTML);
 
+				document.location.href = "agregarProductos.html";
+				
+			});
+		}
+		for (var boton2 of botonEliminar) {
+			boton2.addEventListener("click", function (event) {
+				
+				var yo = event.target;
+				var miSpanInterno = yo.querySelector("span");
+
+				sessionStorage.setItem("productoEliminar", miSpanInterno.innerHTML);
+				console.log(miSpanInterno)
 				document.location.href = "agregarProductos.html";
 			});
 		}
@@ -153,22 +169,32 @@ async function enviarFormulario() {
 	//alert("Formulario enviado!!");
 
 	var formulario = document.querySelector(".contenedor-productos2 form");
-
+	let metodo = true;
 	var datosFormulario = new FormData(formulario);// multipart
 
 	var url = "?";
 	var productoSession = sessionStorage.getItem("productoEditar");
+	var productoSessionEliminar = sessionStorage.getItem("productoEliminar")
 	if (productoSession != null) {
 		url = "/api/actualizarproducto";
 		console.log('actualizar')
-	}
-	else {
+		
+	}else if(productoSessionEliminar != null){
+		url = "/api/eliminarproducto";
+		metodo = false;
+	}else {
 		url = "/api/guardarproducto";
 		console.log('guardar')
+		
 	}
-
-	var respuestaServidor = await fetch(url, { method: "post", body: datosFormulario });
-	var respuesta = await respuestaServidor.json();
+	if(metodo == true){
+		var respuestaServidor = await fetch(url, { method: "post", body: datosFormulario });
+		var respuesta = await respuestaServidor.json();
+	}else{
+		var respuestaServidor = await fetch(url, { method: "delete", body: datosFormulario });
+		var respuesta = await respuestaServidor.json();
+	}
+	
 
 
 	console.log("funciono")
@@ -209,9 +235,36 @@ function validarEdicion() {
 
 	}
 }
+function validarEliminar() {
+
+	var productoSession = sessionStorage.getItem("productoEliminar");
+	var formulario = document.querySelector(".contenedor-productos2 form");
+	var inputId = formulario.querySelector("input[name='_id']");
+	var inputNombre = formulario.querySelector("input[name='nombre']");
+	var inputPrecio = formulario.querySelector("input[name='precio']");
+	var inputCantidad = formulario.querySelector("input[name='cantidad']");
+	var inputCategoria = formulario.querySelector("input[name='categoria']");
+
+	var imageUrlPreview = formulario.querySelector("img.imageUrlPreview");
+	var inputImageUrl = formulario.querySelector("input[name='imageUrl']");
+
+	if (productoSession != null) { // EDITAR
+
+		var productoEliminar = JSON.parse(productoSession);
+
+		inputId.value = productoEliminar._id;
+		inputNombre.value = productoEliminar.nombre;
+		inputPrecio.value = productoEliminar.precio;
+		inputCantidad.value = productoEliminar.cantidad;
+		inputCategoria.value = productoEliminar.categoria;
+		imageUrlPreview.src = productoEliminar.imageUrl;
+
+	}
+}
 function irAgregar(){
 	sessionStorage.clear();
 	location.href='agregarProductos.html'
+	titulo.textContent = "Agregar Productos";
 }
 
 function inicializarPagina() {
@@ -241,6 +294,7 @@ function inicializarPagina() {
 		
 
 		validarEdicion();
+		validarEliminar();
 	}
 	catch (error) { }
 	try {

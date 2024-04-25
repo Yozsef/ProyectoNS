@@ -96,6 +96,9 @@ h2{
     font-style: oblique;
     text-align: center;
 }
+i{
+    margin: 0rem 0rem 0rem 1rem;
+}
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

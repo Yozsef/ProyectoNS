@@ -43,7 +43,7 @@ module.exports = function(app){
 	});
 
 
-	app.post("/api/actualizarproducto", function(request, response){
+	app.post("/api/actualizarproducto", async function(request, response){
 
 		// recoger los datos de producto
 		// let nombre = request.body.nombre;
@@ -60,11 +60,28 @@ module.exports = function(app){
 		};
 
 		// invocar el modelo
-		let resultadoUpdate = model.update(productoEditado);
+		let resultadoUpdate = await model.update(productoEditado);
 
 		let mensaje = "Producto actualizado!!";
 		if(resultadoUpdate == false){
 			mensaje = "Producto NO actualizado!!";
+		}
+
+		response.send({message: mensaje});
+	});
+	app.delete("/api/eliminarproducto", async function(request, response){
+
+		// recoger los datos de producto
+		// let nombre = request.body.nombre;
+		let {_id} = request.body;
+		
+		
+		// invocar el modelo
+		let resultadoUpdate = await model.deleteOne(_id);
+
+		let mensaje = "No Eliminado";
+		if(resultadoUpdate.acknowledged){
+			mensaje = "Eliminado";
 		}
 
 		response.send({message: mensaje});
