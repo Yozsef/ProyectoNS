@@ -13,25 +13,15 @@ module.exports = function () {
     }
 
 
-    this.create = async function (producto) {
-        // Establish a connection to the MongoDB database
-        let connection = await mongodb.connect();
-        
-        // Access the "Productos" collection in the "VentasApp2024" database
-        let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
-    
-        // Generate a new ObjectId for the product
-        producto._id = new ObjectId().toString();
-    
-        // Insert the product into the "Productos" collection
-        let respuesta = await tablaProductos.insertOne(producto);
-        
-        // Close the database connection
-        connection.close();
-    
-        // Return the response from the insert operation
-        return respuesta;
-    }
+    this.create = async function(producto){
+
+		let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito")
+		let respuesta = await tablaProductos.insertOne(producto);
+		connection.close();
+
+		return respuesta
+	}
     
     this.update = async function(productId, updatedFields) {
         let connection = await mongodb.connect();

@@ -15,7 +15,9 @@ window.onload = async function () {
                     <h5>CRC ${producto.precio}</h5>
                     <h5 class="hidden-id">${producto._id}</h5>
                     
-                    <button class="buyButton" onclick="agregarAlCarrito('${producto._id}')">Comprar</button>
+                    <button class="buyButton" onclick="agregarAlCarrito('${producto._id}','${producto.nombre}', ${producto.precio}, ${producto.cantidad}, '${producto.categoria}', '${producto.imageUrl}')">Comprar</button>
+
+
                     </div>`;
             tablaProductosBody.innerHTML += nuevaFila;
         });
@@ -27,14 +29,21 @@ window.onload = async function () {
 
 }
 
-async function agregarAlCarrito(productId) {
+async function agregarAlCarrito(productId, nombre, precio, cantidad, categoria, imageUrl) {
     try {
         const response = await fetch(`/api/agregarAlCarrito`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ productId: productId })
+            body: JSON.stringify({ 
+                productId: productId,
+                nombre: nombre,
+                precio: parseFloat(precio),
+                cantidad: parseInt(cantidad),
+                categoria: categoria,
+                imageUrl: imageUrl
+            })
         });
         const data = await response.json();
         alert(data.message); // Display success message
@@ -43,3 +52,4 @@ async function agregarAlCarrito(productId) {
         alert("Error al agregar producto al carrito"); // Display error message
     }
 }
+

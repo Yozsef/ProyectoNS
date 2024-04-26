@@ -20,17 +20,16 @@ module.exports = function(app){
 
     app.post("/api/agregarAlCarrito", async function (request, response) {
         try {
-            let { nombre, precio, cantidad, categoria, imageUrl, idCliente, idVendedor } = request.body;
+            let { productId, nombre, precio, cantidad, categoria, imageUrl } = request.body;
     
             let producto = { 
+                _id: productId, // Use the provided productId
                 nombre: nombre, 
                 precio: parseFloat(precio), 
                 cantidad: parseInt(cantidad), 
                 categoria: categoria, 
                 imageUrl: imageUrl || null,
-                idCliente: idCliente || null,
-                idVendedor: idVendedor || null
-             };
+            };
             let result = await model.create(producto);
             
             // Check if product was successfully created and send appropriate response
@@ -44,6 +43,8 @@ module.exports = function(app){
             response.status(500).json({ message: "Error interno del servidor" });
         }
     });
+    
+    
     
     app.put("/api/actualizarCarrito/:id", async function (request, response) {
         try {
