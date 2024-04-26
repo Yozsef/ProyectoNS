@@ -1,47 +1,15 @@
-<!DOCTYPE html>
+var htmlInferior = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Vendedor</title>
-    <link rel="stylesheet" href="../css/paginaVendedor.css">
-    <script defer src="../js/paginaVendedor.js"></script>
-    <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/footer.css" />
 </head>
 
 <body>
-    <script src="../js/Header.js"></script>
-    <div class="contenedor-productos">
-            <h2>Agregar/Editar Productos</h2>
-            <div class="botones">
-                <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button>
-            </div>
-            <div class="tabla">
-                <table id="tablaProductos">
-                    <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Nombre producto</th>
-                          <th>Precio</th>
-                          <th>Cantidad</th>
-                          <th>Categoría</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody" >
-                        <td>
-
-                        </td>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="5" id="totalFilas"></td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-    </div>
-    <footer class="footer">
+   <footer class="footer">
         <div class="container">
 
             <div class="footer-row">
@@ -70,4 +38,8 @@
         </div>
     </footer>
 </body>
+
 </html>
+`;
+
+document.write(htmlInferior);

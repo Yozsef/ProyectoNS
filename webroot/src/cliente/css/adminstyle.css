@@ -30,6 +30,7 @@ body{
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 3rem;
     grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 11rem;
 }
 .wrap button{
     margin: 2rem 2rem 0rem 1rem;

@@ -5,20 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar productos</title>
     <link rel="stylesheet" href="../css/paginaVendedor.css">
-    <script defer src="../js/agregarProducto.js"></script>
+    <script defer src="../js/paginaVendedor.js"></script>
 </head>
 <body>
-    <nav>
-        <img src="../../../dist/imagenes/NovaScript_logo.png">
-        <button> <a href="">Salir</a> </button>
-        <button><a href="landingPage.html">Solucion</a></button>
-
-    </nav>
-    <h2>Agregar Productos</h2>
-    <div class="contenedor-productos">
-        
-           
-        <form action="" id="formulario">
+    <script src="../js/Header.js"></script>
+    <h2 id="agregarh2"> Agregar / Editar Productos</h2>
+    <div class="contenedor-productos2"> 
+        <form>
             <div class="wrapper">
                 <div class="input-control">
                     <label>Nombre producto: </label>
@@ -42,48 +35,22 @@
                 </div>
                 <div class="input-control">
                     <label for="file-upload" class="custom-file-input" value="imagen">Subir imagen producto </label>
-                    <input type="file" id="file-upload">
+                    <input type="file" id="file-upload" name="imageUrl" accept="*/*">
                     <img class="imageUrlPreview" style="width: 100px; height: 100px;">
                 </div>
                 <div class="input-control">
                     <label>ID: </label>
-                    <input type="number" class="form__field" placeholder="ID" id="idProducto" name="_id">
+                    <input type="text" class="form__field" placeholder="ID" id="idProducto" name="_id">
                     <div class="error"></div>
                 </div>
             </div>
             <div class="botonAgregar">
-                 <button type="submit" value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
+                 <button value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
             </div>
             </div>
         </form>
     </div>
-    <footer class="footer">
-        <div class="container">
-
-            <div class="footer-row">
-
-                <div class="footer-links">
-                    <h4>Compañia</h4>
-                    <ul>
-                        <li><a href="">Nosotros</a></li>
-                        <li><a href="">Nuestros servicios</a></li>
-                        <li><a href="">Afiliate</a></li>
-                    </ul>
-                </div>
-                <div class="footer-desc">
-                    <h2>NovaScript</h2>
-                    <p>En NovaScript, nos dedicamos a trascender los límites de la creatividad y la innovación en el mundo digital. Somos más que una empresa de desarrollo de páginas web; somos artesanos digitales que tejen líneas de código para dar vida a tus visiones. Desde la creación de plataformas web elegantes hasta la implementación de soluciones tecnológicas vanguardistas, en NovaScript estamos comprometidos a impulsar la transformación digital de tu negocio.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Ayuda</h4>
-                    <ul>
-                        <li><a href="">Preguntas</a></li>
-                        <li><a href="">Compras</a></li>
-                        <li><a href="">Envios</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <script src="../js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

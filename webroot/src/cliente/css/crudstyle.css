@@ -1,8 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    margin: auto;
+    width: auto;
+}
+
 .contenedor-productos{
     width: 50%;
     overflow: hidden;
     height: auto;
-    margin: 2rem 17rem 0rem 27rem;
+    margin: 2rem 17rem 11rem 27rem;
     padding: 2rem;
     display: flex;
     background-color: #f0f0f0;

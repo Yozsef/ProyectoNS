@@ -31,6 +31,16 @@ module.exports = function(){
 
 		return encontrados[0];
 	}
+	this.deleteOne = async function(_id){
+
+		let connection = await mongodb.connect();
+		let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
+		let respuesta = await tablaProductos.deleteOne({ _id: _id})
+
+		connection.close();
+
+		return respuesta;
+	}
 	this.create = async function(producto){
 
 		let connection = await mongodb.connect();
@@ -42,32 +52,22 @@ module.exports = function(){
 		return respuesta
 	}
 
-	this.update = function(producto){
+	this.update = async function(producto){
 
-		// Buscar el elemento
-		let productoEncontrado = null;
+		let connection = await mongodb.connect();
+		let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
+		let respuesta = await tablaProductos.updateOne({_id:producto._id},
+			{$set:  {
+				nombre: producto.nombre,
+				cantidad: producto.cantidad,
+				precio: producto.precio,
+				categoria: producto.categoria,
+				imageUrl: producto.imageUrl
+			} 
+			});
 
-		for(let p of Productos){
-			if(p._id == producto._id){
-				productoEncontrado = p;
-				break;
-			}
-		}
-		
-		// Actualizar el elemento, si existe
-		if(productoEncontrado != null){
-			productoEncontrado.nombre = producto.nombre;
-			productoEncontrado.cantidad = producto.cantidad;
-			productoEncontrado.precio = producto.precio;
+		connection.close();
 
-			if(producto.imageUrl != ""){
-				productoEncontrado.imageUrl = producto.imageUrl;
-			}
-
-			return true;
-		}
-		else{
-			return false;
-		}
+		return respuesta;
 	}
 }
