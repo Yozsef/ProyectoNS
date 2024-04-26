@@ -14,6 +14,7 @@ app.use( express.urlencoded() );
 app.use(multer({ dest: `${carpetaRaiz}/uploads/` }).any());
 
 require("./controllers/ProductosController")(app);
+require("./controllers/CarritoController")(app);
 
 let ipservidor="0.0.0.0"; 
 let puerto= 3000; 
