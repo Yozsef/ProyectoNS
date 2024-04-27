@@ -3,50 +3,69 @@ window.onload = async function () {
         const carritoIzquierda = document.getElementById("carrito-izquierda");
         const informacionPrecio = document.getElementById("informacion-precio");
 
-        // Fetch product data from the server
+        // Function to delete an item from the cart
+        async function deleteItem(productId) {
+            try {
+                const response = await fetch(`/api/eliminarProducto/${productId}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    location.reload(); // Reload the page after successful deletion
+                } else {
+                    console.error("Error deleting item:", response.statusText);
+                    alert("Error deleting item. Please try again later.");
+                }
+            } catch (error) {
+                console.error("Error deleting item:", error);
+                alert("Error deleting item. Please try again later.");
+            }
+        }
+        
+
+        // Fetch cart items from the server
         const response = await fetch("/api/listarCarrito");
-        const productos = await response.json();
+        const cartItems = await response.json();
 
-        // Fetch and render details for each product
-        const productosDetails = await Promise.all(productos.map(async producto => {
-            // Fetch product details by ID
-            const response = await fetch(`/api/listarproducto/${producto._id}`);
-            const productDetails = await response.json();
-
-            // Merge product details with existing product data
-            return { ...producto, ...productDetails };
-        }));
-
-        // Render products in the left cart section
-        productosDetails.forEach(producto => {
-            const productoHTML = `
-                <h2>${producto.vendedor}</h2>
+        // Iterate through each item in the cart
+        cartItems.forEach(item => {
+            // Create HTML elements for each item
+            const itemElement = document.createElement("div");
+            itemElement.classList.add("carrito-info-producto");
+            itemElement.innerHTML = `
                 <div class="carrito-info-producto">
-                    <img src="${producto.imageUrl}">
+                    <img src="${item.imageUrl}">
                     <div class="nom-prec">
-                        <p>${producto.nombre}</p>
-                        <p>Precio: ${producto.precio}₡</p>
+                        <p>${item.nombre}</p>
+                        <p>Precio: ${item.precio}₡</p>
                     </div>
                     <div class="eliminar-agregar">
                         <div class="iconos">
-                            <a href=""><img src="../../../dist/imagenes/plus.png"></a>
-                            <p>${producto.cantidad}</p>
-                            <a href=""><img src="../../../dist/imagenes/basurero.png"></a>
+                            <a href="#" class="trash-btn" data-product-id="${item._id}"><img src="../../../dist/imagenes/basurero.png"></a>
+                            <p>${item.cantidad}</p>
                         </div>
                     </div>
                 </div>
             `;
-            carritoIzquierda.innerHTML += productoHTML;
+            // Append the item HTML to the left cart section
+            carritoIzquierda.appendChild(itemElement);
+
+            // Add event listener to trash icon
+            const trashBtn = itemElement.querySelector(".trash-btn");
+            trashBtn.addEventListener("click", (event) => {
+                event.preventDefault();
+                const productId = event.currentTarget.dataset.productId;
+                deleteItem(productId);
+            });
         });
 
-        // Calculate total based on product data
-        const subtotal = productosDetails.reduce((acc, cur) => acc + (cur.precio * cur.cantidad), 0);
+        // Calculate total price of all items in the cart
+        const subtotal = cartItems.reduce((acc, cur) => acc + (cur.precio * cur.cantidad), 0);
         const impuestos = 0.13 * subtotal; // Assuming 13% taxes
         const servicio = 1500; // Sample service charge
         const total = subtotal + impuestos + servicio;
 
-        // Render total in the right cart section
-        informacionPrecio.innerHTML = `
+        // Create HTML for total prices
+        const totalPriceHTML = `
             <div class="precios">
                 <p>Subtotal</p>
                 <p>${subtotal}₡</p>
@@ -64,8 +83,10 @@ window.onload = async function () {
                 <p>${total}₡</p>
             </div>
         `;
+        // Append total price HTML to the right cart section
+        informacionPrecio.innerHTML = totalPriceHTML;
     } catch (error) {
-        console.error("Error fetching products or calculating total:", error);
-        alert("Error fetching products or calculating total. Please try again later.");
+        console.error("Error fetching cart items or calculating total:", error);
+        alert("Error fetching cart items or calculating total. Please try again later.");
     }
 }

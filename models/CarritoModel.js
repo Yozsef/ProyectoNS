@@ -12,16 +12,13 @@ module.exports = function () {
         return itemsInCart;
     }
 
-
     this.create = async function(producto){
-
-		let connection = await mongodb.connect();
-        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito")
-		let respuesta = await tablaProductos.insertOne(producto);
-		connection.close();
-
-		return respuesta
-	}
+        let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
+        let respuesta = await tablaProductos.insertOne(producto);
+        connection.close();
+        return respuesta;
+    }
     
     this.update = async function(productId, updatedFields) {
         let connection = await mongodb.connect();
@@ -41,10 +38,16 @@ module.exports = function () {
     
             return updateResult;
         } catch (error) {
-            console.error("Error update al carrito:", error);
+            console.error("Error updating cart item:", error);
             throw error; // Throw the error to the caller
         }
     }
 
-
+    this.deleteOne = async function(_id){
+        let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
+        let respuesta = await tablaProductos.deleteOne({ _id: _id });
+        connection.close();
+        return respuesta;
+    }
 }

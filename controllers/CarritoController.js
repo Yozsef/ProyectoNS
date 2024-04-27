@@ -61,6 +61,22 @@ module.exports = function(app){
             response.status(500).send("Error interno del servidor");
         }
     });
+    app.delete("/api/eliminarProducto/:id", async function (request, response) {
+        try {
+            let productId = request.params.id; // This should be _id
+            let result = await model.deleteOne(productId); // Pass _id instead of productId
+            if (result.deletedCount > 0) {
+                response.send("Elemento eliminado exitosamente");
+            } else {
+                response.status(404).send("Elemento no encontrado");
+            }
+        } catch (error) {
+            console.error("Error al eliminar el elemento del carrito:", error);
+            response.status(500).send("Error interno del servidor");
+        }
+    });
+    
+
 
 
 
