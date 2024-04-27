@@ -15,7 +15,7 @@ window.onload = async function () {
                     <h5>CRC ${producto.precio}</h5>
                     <h5>Cantidad ${producto.cantidad}</h5>
                     <h5 class="hidden-id">${producto._id}</h5>
-
+                    <h5>Cantidad: </h5>
                     <input type="number" id="quantity_${producto._id}" placeholder="Cantidad" min="1" max="${producto.cantidad}" value="1" onchange="validateQuantity(this, ${producto.cantidad})">
                     <br>
                     <button class="buyButton" onclick="agregarAlCarrito('${producto._id}','${producto.nombre}', ${producto.precio}, ${producto.cantidad}, '${producto.categoria}', '${producto.imageUrl}')">Comprar</button>

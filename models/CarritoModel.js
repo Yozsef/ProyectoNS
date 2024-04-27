@@ -50,4 +50,21 @@ module.exports = function () {
         connection.close();
         return respuesta;
     }
+
+    this.createHis = async function(producto) {
+        let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("usuarioHistorial");
+        let respuesta = await tablaProductos.insertMany(producto); 
+        
+        return respuesta;
+    }
+    
+    this.deleteAll = async function() {
+        let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
+        let respuesta = await tablaProductos.deleteMany({}); 
+        connection.close();
+        return respuesta;
+    }
+    
 }

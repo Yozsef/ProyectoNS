@@ -1,12 +1,7 @@
-let {Router} = require('express');
-let fs = require('fs');
+const CarritoModel = require("../models/CarritoModel");
 
-let CarritoModel = require("../models/CarritoModel");
-
-
-module.exports = function(app){
-
-	let model = new CarritoModel();
+module.exports = function (app) {
+    const model = new CarritoModel();
 
     app.get("/api/listarCarrito", async function (request, response) {
         try {
@@ -21,9 +16,9 @@ module.exports = function(app){
     app.post("/api/agregarAlCarrito", async function (request, response) {
         try {
             let { productId, nombre, precio, cantidad, categoria, imageUrl } = request.body;
-    
+
             let producto = { 
-                _id: productId, // Use the provided productId
+                _id: productId,
                 nombre: nombre, 
                 precio: parseFloat(precio), 
                 cantidad: parseInt(cantidad), 
@@ -31,8 +26,7 @@ module.exports = function(app){
                 imageUrl: imageUrl || null,
             };
             let result = await model.create(producto);
-            
-            // Check if product was successfully created and send appropriate response
+
             if (result) {
                 response.json({ message: "Producto agregado al carrito exitosamente" });
             } else {
@@ -43,9 +37,7 @@ module.exports = function(app){
             response.status(500).json({ message: "Error interno del servidor" });
         }
     });
-    
-    
-    
+
     app.put("/api/actualizarCarrito/:id", async function (request, response) {
         try {
             let productId = request.params.id;
@@ -61,10 +53,11 @@ module.exports = function(app){
             response.status(500).send("Error interno del servidor");
         }
     });
+
     app.delete("/api/eliminarProducto/:id", async function (request, response) {
         try {
-            let productId = request.params.id; // This should be _id
-            let result = await model.deleteOne(productId); // Pass _id instead of productId
+            let productId = request.params.id;
+            let result = await model.deleteOne(productId);
             if (result.deletedCount > 0) {
                 response.send("Elemento eliminado exitosamente");
             } else {
@@ -75,13 +68,35 @@ module.exports = function(app){
             response.status(500).send("Error interno del servidor");
         }
     });
-    
 
+    app.post("/api/guardarHistorial", async function (request, response) {
+        try {
+            const { productList } = request.body;
 
+            // Generate a random idHistorial
+            const idHistorial = generateId();
 
+            // Add idHistorial to each product
+            const productsWithHistorial = productList.map(product => ({
+                ...product,
+                idHistorial: idHistorial
+            }));
 
+            // Insert all products into "usuarioHistorial" collection
+            const historialInsertion = await model.createHis(productsWithHistorial);
 
-}
+            // Delete all products from the "Carrito" collection
+            const deleteResult = await model.deleteAll();
 
+            response.json({ message: "Products stored successfully", historialInsertion, deleteResult });
+        } catch (error) {
+            console.error("Error storing products:", error);
+            response.status(500).json({ error: "Internal server error" });
+        }
+    });
 
-
+    // Function to generate a random idHistorial
+    function generateId() {
+        return Math.floor(Math.random() * 1000000); // Example: Generates a random 6-digit number
+    }
+};

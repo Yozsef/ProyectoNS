@@ -12,56 +12,31 @@
 
 <body>
     <nav>
-        <img src="../../../dist/imagenes/NovaScript_logo.png">
-        <button> <a href="https://www.youtube.com/">Salir</a> </button>
-        <button><a>Catalogo</a></button>
+        <img src="../../../dist/imagenes/NovaScript_logo_trans.png">
+        <button> <a href="carritoDeCompras.html">Regresar</a> </button>
     </nav>
 
     <div class="container">
         <div class="realizar-compra">
             <h2>Realizar compra</h2>
             <div class="resumen">
-            <h3>Resumen del pedido</h3>
+                <h3>Resumen del pedido</h3>
             </div>
-            <div class="contenedor-pedidos">
-                <div class="pedido">
-                    <img src="../../../dist/imagenes/aguacate.jpg">
-                    <p>Articulo 1</p>
-                    <p>Categoria: </p>
-                    <p>Precio: 2500₡</p>
-                    <a href="">Editar</a>
-                </div>
-                <div class="pedido">
-                    <img src="../../../dist/imagenes/manzanas.jpg">
-                    <p>Articulo 2</p>
-                    <p>Categoria: </p>
-
-                    <p>Precio: 2500₡</p>
-
-                    <a href="">Editar</a>
-                </div>
-                <div class="pedido">
-                    <img src="../../../dist/imagenes/naranja.jpg">
-                    <p>Articulo 3</p>
-                    <p>Categoria: </p>
-
-                    <p>Precio: 2500₡</p>
-
-                    <a href="">Editar</a>
-                </div>
+            <div class="contenedor-pedidos" id="pedido-container">
+                <!-- Dynamic content will be added here -->
             </div>
-            <button ><a href="AnadirTarjeta.html">Agregar metodo de pago </a></button>
+            <button id="add-payment-method" onclick="location.href='AnadirTarjeta.html'">Agregar método de pago</button>
 
             <div class="informacion-precio">
-                <p>Subtotal: </p>
-                <p>Impuestos</p>
-
-                <p>Total a pagar</p>
+                <p>Subtotal: <span id="subtotal">0</span></p>
+                <p>Impuestos: <span id="impuestos">0</span></p>
+                <p>Total a pagar: <span id="total">0</span></p>
             </div>
-            <button class="btn">Completar Pedido</button>
-
+            <button id="complete-order" class="btn">Completar Pedido</button>
         </div>
     </div>
+
+
     <footer class="footer">
         <div class="container-2">
 

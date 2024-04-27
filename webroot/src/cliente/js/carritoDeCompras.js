@@ -68,19 +68,19 @@ window.onload = async function () {
         const totalPriceHTML = `
             <div class="precios">
                 <p>Subtotal</p>
-                <p>${subtotal}₡</p>
+                <p>₡${subtotal}</p>
             </div>
             <div class="precios">
                 <p>Impuestos</p>
-                <p>${impuestos}₡</p>
+                <p>₡${impuestos}</p>
             </div>
             <div class="precios">
                 <p>Servicio</p>
-                <p>${servicio}₡</p>
+                <p>₡${servicio}</p>
             </div>
             <div class="precios">
                 <p>Total</p>
-                <p>${total}₡</p>
+                <p>₡${total}</p>
             </div>
         `;
         // Append total price HTML to the right cart section
