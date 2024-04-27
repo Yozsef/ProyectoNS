@@ -57,8 +57,22 @@ module.exports = function (app) {
     app.delete("/api/eliminarProducto/:id", async function (request, response) {
         try {
             let productId = request.params.id;
+    
+            // Retrieve the product's details to get its quantity
+            let product = await model.readById(productId);
+            if (!product) {
+                response.status(404).send("Producto no encontrado");
+                return;
+            }
+    
+            let cantidadEliminada = product.cantidad;
+    
+            // Delete the product from the cart
             let result = await model.deleteOne(productId);
+    
             if (result.deletedCount > 0) {
+                // Add the removed quantity back to the product's quantity
+                await model.actualizarCantidad(productId, cantidadEliminada);
                 response.send("Elemento eliminado exitosamente");
             } else {
                 response.status(404).send("Elemento no encontrado");

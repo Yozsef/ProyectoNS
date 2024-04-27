@@ -12,7 +12,23 @@ module.exports = function () {
         return itemsInCart;
     }
 
-    this.create = async function(producto){
+    this.readById = async function(id){
+	
+
+		let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito")
+        let Productos = await tablaProductos.find().toArray();
+
+		let encontrados = Productos.filter(p => p._id == id);
+		
+		if(encontrados.length == 0){
+			return null;
+		}
+
+		return encontrados[0];
+	}
+
+    this.createCarrito = async function(producto){
         let connection = await mongodb.connect();
         let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
         let respuesta = await tablaProductos.insertOne(producto);
@@ -47,9 +63,22 @@ module.exports = function () {
         let connection = await mongodb.connect();
         let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
         let respuesta = await tablaProductos.deleteOne({ _id: _id });
-        connection.close();
+      
         return respuesta;
     }
+
+    this.actualizarCantidad = async function(idProducto, cantidad) {
+		try {
+			let connection = await mongodb.connect();
+			let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
+			let respuesta = await tablaProductos.updateOne({ _id: idProducto }, { $inc: { cantidad: +cantidad } });
+			connection.close();
+			return respuesta;
+		} catch (error) {
+			console.error("Error al actualizar la cantidad del producto:", error);
+			throw error;
+		}
+	}
 
     this.createHis = async function(producto) {
         let connection = await mongodb.connect();
@@ -66,5 +95,7 @@ module.exports = function () {
         connection.close();
         return respuesta;
     }
+
+
     
 }

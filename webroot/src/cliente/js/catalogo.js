@@ -1,55 +1,53 @@
 window.onload = async function () {
     try {
-        var tablaProductosBody = document.querySelector(".tabla");
-        var respuestaServidor = await fetch("/api/listarproductos");
-
-        var listaProductos = await respuestaServidor.json();
+        const tablaProductosBody = document.querySelector(".tabla");
+        const response = await fetch("/api/listarproductos");
+        const listaProductos = await response.json();
 
         tablaProductosBody.innerHTML = "";
 
         listaProductos.forEach(producto => {
-            var nuevaFila = `
+            const nuevaFila = `
                 <div id="producto">
-                    <img src="${producto.imageUrl}" alt="">
+                    <img src="${producto.imageUrl}">
                     <h4>${producto.nombre}</h4>
                     <h5>CRC ${producto.precio}</h5>
                     <h5>Cantidad ${producto.cantidad}</h5>
-                    <h5 class="hidden-id">${producto._id}</h5>
-                    <h5>Cantidad: </h5>
-                    <input type="number" id="quantity_${producto._id}" placeholder="Cantidad" min="1" max="${producto.cantidad}" value="1" onchange="validateQuantity(this, ${producto.cantidad})">
-                    <br>
-                    <button class="buyButton" onclick="agregarAlCarrito('${producto._id}','${producto.nombre}', ${producto.precio}, ${producto.cantidad}, '${producto.categoria}', '${producto.imageUrl}')">Comprar</button>
+                    <input type="number" id="quantity_${producto._id}" placeholder="Cantidad" min="1" max="${producto.cantidad}" value="1">
+                    <button class="buyButton" data-product='${JSON.stringify(producto)}'>Comprar</button>
                 </div>`;
             tablaProductosBody.innerHTML += nuevaFila;
+        });
+
+        // Agregar manejadores de eventos a los botones de compra
+        const buyButtons = document.querySelectorAll(".buyButton");
+        buyButtons.forEach(button => {
+            button.addEventListener("click", agregarAlCarrito);
         });
     } catch (error) {
         console.error("Error fetching products:", error);
     }
 }
 
-function validateQuantity(input, maxQuantity) {
-    if (parseInt(input.value) > maxQuantity) {
-        input.value = maxQuantity;
-    }
-}
-
-async function agregarAlCarrito(productId, nombre, precio, cantidad, categoria, imageUrl) {
+async function agregarAlCarrito(event) {
     try {
-        const quantityInput = document.getElementById(`quantity_${productId}`);
+        const button = event.target;
+        const producto = JSON.parse(button.getAttribute("data-product"));
+        const quantityInput = document.getElementById(`quantity_${producto._id}`);
         const quantity = parseInt(quantityInput.value);
         
-        const response = await fetch(`/api/agregarAlCarrito`, {
+        const response = await fetch("/api/agregarAlCarrito", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ 
-                productId: productId,
-                nombre: nombre,
-                precio: parseFloat(precio),
+                productId: producto._id,
+                nombre: producto.nombre,
+                precio: producto.precio,
                 cantidad: quantity,
-                categoria: categoria,
-                imageUrl: imageUrl
+                categoria: producto.categoria,
+                imageUrl: producto.imageUrl
             })
         });
         const data = await response.json();
@@ -58,6 +56,8 @@ async function agregarAlCarrito(productId, nombre, precio, cantidad, categoria, 
             text: data.message,
             icon: 'success',
             confirmButtonText: 'OK'
+        }).then(() => {
+            location.reload(); 
         });
     } catch (error) {
         console.error("Error adding product to carrito:", error);

@@ -70,7 +70,33 @@ module.exports = function(app){
 		response.send({message: mensaje});
 	});
 
-}
+	app.post("/api/agregarAlCarrito", async function(request, response) {
+        try {
+            const { productId, nombre, precio, cantidad, categoria, imageUrl } = request.body;
+
+            // Agregar el producto al carrito
+            let result = await model.createCarrito({
+                _id: productId,
+                nombre: nombre,
+                precio: parseFloat(precio),
+                cantidad: parseInt(cantidad),
+                categoria: categoria,
+                imageUrl: imageUrl || null
+            });
+
+            if (result) {
+                // Actualizar la cantidad del producto en el catálogo
+                await model.actualizarCantidad(productId, cantidad);
+                response.json({ message: "Producto agregado al carrito exitosamente" });
+            } else {
+                response.status(404).json({ message: "No se pudo agregar el producto al carrito" });
+            }
+        } catch (error) {
+            console.error("Error al agregar el elemento al carrito:", error);
+            response.status(500).json({ message: "Error interno del servidor" });
+        }
+    });
+};
 
 
 function elToqueDelaImagen(request){
