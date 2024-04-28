@@ -78,6 +78,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         if (response.ok) {
             alerta(); // Show success message
+            
+            
         } else {
             console.error("Error placing order");
         }
@@ -90,8 +92,12 @@ function alerta() {
         position: "center",
         icon: "success",
         title: "Your order has been placed!",
-        showConfirmButton: false,
+        showConfirmButton: true,
         timer: 3500
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "catalogo.html";
+        }
     });
 }
 
