@@ -7,10 +7,14 @@ const numTelefono = document.getElementById('numTelefono');
 const direccion = document.getElementById('direccion');
 const fileUpload = document.getElementById('fileUpload');
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    validateInputs();
+    if (validateInputs()) {
+        console.log('Validation passed');
+        await sendDataToServer();
+        console.log('send');
+    }
 });
 
 const setError = (element, message) => {
@@ -65,16 +69,13 @@ const validateInputs = () => {
 
     if (nombreNegocioValue === '') {
         setError(nombreNegocio, 'El nombre es requerido')
-    } else if (!nombreValidacion(nnombreNegocioValueombreValue)) {
-        setError(nombreNegocio, 'Necesita ingresar un nombre valido')
     } else {
         setSuccess(nombreNegocio)
     }
 
-
     if (cedulaValue === ' ') {
         setError(cedula, 'La cedula es requerida')
-    } else if (cedulaValue.length !== 9  && cedulaValue.length !== 11 &&cedulaValue.length !== 12) {
+    } else if (cedulaValue.length !== 9 && cedulaValue.length !== 11 && cedulaValue.length !== 12) {
         setError(cedula, 'La cédula debe contener 9, 11 o 12 dígitos')
     } else {
         setSuccess(cedula)
@@ -90,7 +91,7 @@ const validateInputs = () => {
 
     if (numTelefonoValue === '') {
         setError(numTelefono, 'Necesita ingresar un telefono')
-    } else if (numTelefono.length < 8 || numTelefono.length > 12 ) {
+    } else if (numTelefono.length < 8 || numTelefono.length > 12) {
         setError(numTelefono, 'Ingrese un numero de telefono valido');
     } else {
         setSuccess(numTelefono)
@@ -113,6 +114,33 @@ const validateInputs = () => {
         } else {
             setSuccess(fileUpload);
         }
-    }
+    } 
+    return true;
 
+}
+
+const sendDataToServer = async () => {
+    const formData = {
+        nombre: nombre.value.trim(),
+        nombreNegocio: nombreNegocio.value.trim(),
+        cedula: cedula.value.trim(),
+        correo: correo.value.trim(),
+        numTelefono: numTelefono.value.trim(),
+
+        fileUpload: fileUpload.files[0].name
+    };
+
+    try {
+        const response = await fetch('/api/guardarSolicitud', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        const data = await response.json();
+        console.log(data.message);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
