@@ -198,7 +198,7 @@ async function enviarFormulario() {
 		icon: "success",
 
 	}).then(function () {
-		//window.location = "paginaVendedor.html";
+		window.location = "paginaVendedor.html";
 	});
 
 }
