@@ -70,4 +70,25 @@ module.exports = function(){
 
 		return respuesta;
 	}
+
+	this.createCarrito = async function(producto){
+        let connection = await mongodb.connect();
+        let tablaProductos = await connection.db("VentasApp2024").collection("Carrito");
+        let respuesta = await tablaProductos.insertOne(producto);
+      
+        return respuesta;
+    }
+
+	this.actualizarCantidad = async function(idProducto, cantidad) {
+		try {
+			let connection = await mongodb.connect();
+			let tablaProductos = await connection.db("VentasApp2024").collection("Productos");
+			let respuesta = await tablaProductos.updateOne({ _id: idProducto }, { $inc: { cantidad: -cantidad } });
+			connection.close();
+			return respuesta;
+		} catch (error) {
+			console.error("Error al actualizar la cantidad del producto:", error);
+			throw error;
+		}
+	}
 }

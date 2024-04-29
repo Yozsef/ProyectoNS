@@ -10,93 +10,33 @@
 
 <body>
     <nav>
-        <img src="../../../dist/imagenes/NovaScript_logo.png">
-        <button> <a href="">Salir</a> </button>
-        <button><a href="Catalogo.html">Catalogo</a></button>
-        <button><a href="editarperfil.html">Perfil</a></button>
+        <img src="../../../dist/imagenes/NovaScript_logo_trans.png">
+        <button> <a href="Catalogo.html">Regresar</a> </button>
     </nav>
 
     <div class="contenedor">
-        <div class="carrito-de-compras">
-            <div class="carrito-izquierda">
-                <h2>Vendedor 1</h2>
-                <div class="carrito-info-producto">
-                    <img src="../../../dist/imagenes/aguacate.jpg">
-                    <div class="nom-prec">
-                        <p value="nombre">Aguacate</p>
-                        <p value="precio">Precio: 5000₡ </p>
-                    </div>
-                    <div class="eliminar-agregar">
-                        <div class="iconos">
-                            <a href=""><img src="../../../dist/imagenes/plus.png"></a>
-                            <p>5</p>
-                            <a href=""><img src="../../../dist/imagenes/basurero.png"> </a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="carrito-info-producto">
-                    <img src="../../../dist/imagenes/manzanas.jpg">
-                    <div class="nom-prec">
-                        <p value="nombre">Manzana</p>
-                        <p value="precio">Precio: 2000₡ </p>
-                    </div>
-                    <div class="eliminar-agregar">
-                        <div class="iconos">
-                            <a href=""><img src="../../../dist/imagenes/plus.png"></a>
-                            <p>5</p>
-                            <a href=""><img src="../../../dist/imagenes/basurero.png"> </a>
-                        </div>
-                    </div>
-                </div>
-                <h2>Vendedor 2</h2>
-                <div class="carrito-info-producto">
-                    <img src="../../../dist/imagenes/naranja.jpg">
-                    <div class="nom-prec">
-                        <p value="nombre">Naranja</p>
-                        <p value="precio">Precio: 3000₡ </p>
-                    </div>
-                    <div class="eliminar-agregar">
-                        <div class="iconos">
-                            <a href=""><img src="../../../dist/imagenes/plus.png"></a>
-                            <p>5</p>
-                            <a href=""><img src="../../../dist/imagenes/basurero.png"> </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="carrito-de-compras">
+            <div class="carrito-izquierda" id="carrito-izquierda">
+                <!-- Dynamic content will be added here -->
             </div>
+
+            <!-- Informacion de la derecha -->
             <div class="carrito-derecha">
-                <h2>Orden Total </h2>
-                <div class="informacion-precio">
-                    <div class="precios">
-                        <p>Subtotal </p>
-                        <p> 33 000 ₡</p>
-                    </div>
-                    <div class="precios">
-                        <p>Impuestos </p>
-                        <p> 4000 ₡</p>
-                    </div>
-                    <div class="precios">
-                        <p>Servicio </p>
-                        <p> 1500 ₡</p>
-                    </div>
-                </div>
-                <div class="informacion-precio" value="segundo">
-                    <div class="precios">
-                        <p>Total </p>
-                        <p> 50 000 ₡</p>
-                    </div>
+                <h2>Orden Total</h2>
+                <div class="informacion-precio" id="informacion-precio">
+                    <!-- Dynamic total price will be added here -->
                 </div>
                 <div class="boton">
-                    <a href="realizarcompra.html"><button>Ordernar</button></a>
+                    <button onclick="location.href='realizarcompra.html'">Ordenar</button>
                 </div>
-                
             </div>
         </div>
 
     </div>
+
     <footer class="footer">
-        <div class="container-2">
+        <div class="container">
 
             <div class="footer-row">
 
@@ -123,6 +63,10 @@
             </div>
         </div>
     </footer>
+    </footer>
+
+    <script src="../js/carritoDeCompras.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

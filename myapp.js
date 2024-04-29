@@ -18,6 +18,8 @@ require("./controllers/ClientesController")(app);
 require("./controllers/VendedoresController")(app);
 require("./controllers/TramoController")(app);
 require("./controllers/SolicitudesController")(app);
+require("./controllers/CarritoController")(app);
+require("./controllers/SolicitudController")(app);
 
 
 let ipservidor="0.0.0.0"; 

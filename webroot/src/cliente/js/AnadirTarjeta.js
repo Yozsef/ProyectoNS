@@ -42,8 +42,8 @@ document.getElementById("paymentForm").addEventListener("submit", function(event
     if (isValid) {
         // Display success message
         document.getElementById("successMessage").style.display = "block";
-
-        // Optionally, you can reset the form
-        document.getElementById("paymentForm").reset();
+        window.location.href = "realizarcompra.html"
     }
+    
+
 });

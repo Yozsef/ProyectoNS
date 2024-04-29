@@ -19,3 +19,17 @@ VentasApp: {
 		cantidadVendida: 0
 	}
 }
+
+Carrito{
+	Productos: {
+		_id: "",
+		nombre: "",
+		precio: 0.0,
+		cantidad: 0,
+		categoria: "",
+		imageUrl: "/productos/imagenes/xxxxxxx.png",
+		idCliente: ""
+		idVendedor:""
+	},
+
+}

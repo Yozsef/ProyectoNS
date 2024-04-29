@@ -18,12 +18,12 @@ module.exports = function(app){
 
 	app.post("/api/guardarproducto", async function(request, response){
 
-		let {nombre, precio, cantidad, categoria } = request.body;
+		let { id, nombre, precio, cantidad, categoria } = request.body;
 
 		let imageUrl = elToqueDelaImagen(request);
 		
 		let nuevoProducto = {
-			_id: "",
+			_id: id,
 			nombre: nombre,
 			precio: parseFloat(precio),
 			cantidad: parseInt(cantidad),
@@ -43,11 +43,11 @@ module.exports = function(app){
 	});
 
 
-	app.post("/api/actualizarproducto", async function(request, response){
+	app.post("/api/actualizarproducto", function(request, response){
 
 		// recoger los datos de producto
 		// let nombre = request.body.nombre;
-		let { _id, nombre, precio, cantidad, categoria } = request.body;
+		let { _id, nombre, precio, cantidad } = request.body;
 		let imageUrl = elToqueDelaImagen(request);
 
 		let productoEditado = {
@@ -55,12 +55,12 @@ module.exports = function(app){
 			nombre: nombre,
 			precio: parseFloat(precio),
 			cantidad: parseInt(cantidad),
-			categoria: categoria,
+            categoria: categoria,
 			imageUrl: imageUrl
 		};
 
 		// invocar el modelo
-		let resultadoUpdate = await model.update(productoEditado);
+		let resultadoUpdate = model.update(productoEditado);
 
 		let mensaje = "Producto actualizado!!";
 		if(resultadoUpdate == false){
@@ -69,25 +69,34 @@ module.exports = function(app){
 
 		response.send({message: mensaje});
 	});
-	app.delete("/api/eliminarproducto", async function(request, response){
 
-		// recoger los datos de producto
-		// let nombre = request.body.nombre;
-		let {_id} = request.body;
-		
-		
-		// invocar el modelo
-		let resultadoUpdate = await model.deleteOne(_id);
+	app.post("/api/agregarAlCarrito", async function(request, response) {
+        try {
+            const { productId, nombre, precio, cantidad, categoria, imageUrl } = request.body;
 
-		let mensaje = "No Eliminado";
-		if(resultadoUpdate.acknowledged){
-			mensaje = "Eliminado";
-		}
+            // Agregar el producto al carrito
+            let result = await model.createCarrito({
+                _id: productId,
+                nombre: nombre,
+                precio: parseFloat(precio),
+                cantidad: parseInt(cantidad),
+                categoria: categoria,
+                imageUrl: imageUrl || null
+            });
 
-		response.send({message: mensaje});
-	});
-
-}
+            if (result) {
+                // Actualizar la cantidad del producto en el catálogo
+                await model.actualizarCantidad(productId, cantidad);
+                response.json({ message: "Producto agregado al carrito exitosamente" });
+            } else {
+                response.status(404).json({ message: "No se pudo agregar el producto al carrito" });
+            }
+        } catch (error) {
+            console.error("Error al agregar el elemento al carrito:", error);
+            response.status(500).json({ message: "Error interno del servidor" });
+        }
+    });
+};
 
 
 function elToqueDelaImagen(request){
@@ -102,7 +111,7 @@ function elToqueDelaImagen(request){
 	let extension = archivo.originalname.split(".");
 	extension = extension[extension.length - 1];
 
-	let imageUrl = `/dist/imagenes/${archivo.filename}.${extension}`;
+	let imageUrl = `../dist/imagenes/${archivo.filename}.${extension}`;
 
 	let viejaRuta = `${archivo.destination}${archivo.filename}`;
 	let nuevaRuta = `webroot/${imageUrl}`;

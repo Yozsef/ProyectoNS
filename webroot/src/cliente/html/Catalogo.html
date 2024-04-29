@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..//css/Catalogo.css" />
-
+    <link rel="stylesheet" href="../css/Catalogo.css" />
     <title>Catalogo</title>
-
 </head>
 
 <body>
@@ -18,40 +16,21 @@
         <!-- Vendedor 1 -->
         <div id="vendedor">
             <div id="contenidoArriba">
-
                 <div id="vendedorDerecha">
                     <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
                     <h3>Fresas del Cielo</h3>
+                    <button onclick="location.href = 'Calificar.html'">Calificar</button>
                 </div>
             </div>
- 
             <div id="comtenidoAbajo">
-                <div id="lineaProducto">
-
-                    <div id="producto">
-                        <img  src="../../../dist/imagenes/strawberry.png" alt="">
-                        <h4>Fresas del poas </h4>
-                        <h5>CRC 3500</h5>
-                    </div>
-
-                    <div id="producto">
-                        <img src="../../../dist/imagenes/grapes.png" alt="">
-                        <h4>Racimo de uvas</h4>
-                        <h5>CRC 5600</h5>
-                    </div>
-
+                <div id="lineaProducto" class="tabla">
+                    <!-- Productos will be dynamically added here -->
                 </div>
-
             </div>
         </div>
-
- 
-
-        
-
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/catalogo.js"></script>
     
-</body>
 
-</html>
+</body>
