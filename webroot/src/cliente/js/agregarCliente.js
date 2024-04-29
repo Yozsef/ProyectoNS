@@ -14,6 +14,7 @@ async function recoger_datos2(){
         var nuevaFila = `<tr>
                     <td>${cliente._id}</td>
                     <td>${cliente.nombre}</td>
+					<td>${cliente.cedula}</td>
                     <td>${cliente.telefono}</td>
                     <td>${cliente.correo}</td>
                     <td>${cliente.password}</td>

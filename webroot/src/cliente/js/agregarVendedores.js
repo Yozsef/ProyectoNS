@@ -13,6 +13,7 @@ async function recoger_datos2(){
         var nuevaFila = `<tr>
                     <td>${vendedor._id}</td>
                     <td>${vendedor.nombre}</td>
+					<td>${vendedor.cedula}</td>
                     <td>${vendedor.correo}</td>
                     <td>${vendedor.telefono}</td>
                     <td>${vendedor.password}</td>
@@ -117,6 +118,7 @@ function validarEdicion() {
 	var formulario = document.querySelector(".contenedor-productos form");
 	var inputId = formulario.querySelector("input[name='_id']");
 	var inputNombre = formulario.querySelector("input[name='nombre']");
+	var inputCedula = formulario.querySelector("input[name='cedula']");
 	var inputTelefono = formulario.querySelector("input[name='telefono']");
     var inputCorreo = formulario.querySelector("input[name='correo']");
 	var inputPassword = formulario.querySelector("input[name='password']");
@@ -129,6 +131,7 @@ function validarEdicion() {
 
 		inputId.value = vendedorEditar._id;
 		inputNombre.value = vendedorEditar.nombre;
+		inputCedula.value = vendedorEditar.cedula;
 		inputCorreo.value = vendedorEditar.correo;
         inputTelefono.value = vendedorEditar.telefono;
 		inputPassword.value = vendedorEditar.password;
@@ -143,6 +146,7 @@ function validarEliminar() {
 	var formulario = document.querySelector(".contenedor-productos form");
 	var inputId = formulario.querySelector("input[name='_id']");
 	var inputNombre = formulario.querySelector("input[name='nombre']");
+	var inputCedula = formulario.querySelector("input[name='cedula']");
 	var inputTelefono = formulario.querySelector("input[name='telefono']");
     var inputCorreo = formulario.querySelector("input[name='correo']");
 	var inputPassword = formulario.querySelector("input[name='password']");
@@ -155,6 +159,7 @@ function validarEliminar() {
 
 		inputId.value = vendedorEliminar._id;
 		inputNombre.value = vendedorEliminar.nombre;
+		inputCedula.value = vendedorEliminar.cedula;
 		inputCorreo.value = vendedorEliminar.correo;
         inputTelefono.value = vendedorEliminar.telefono;
 		inputPassword.value = vendedorEliminar.password;

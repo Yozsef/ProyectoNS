@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Cliente</title>
+    <link rel="stylesheet" type="text/css" href="../css/registroCliente.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../../../dist/imagenes/NovaScript_logo.png">
+    </nav>
+
+    <h2>Registro Cliente</h2>
+
+    <form id="paymentForm">
+        <div class="input-control">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre Completo">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" placeholder="Cedula">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="telefono">Telefono:</label>
+            <input type="number" id="telefono" name="telefono" placeholder="Telefono">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" placeholder="Correo">
+            <div class="error"></div>
+        </div>
+
+        <div class="input-control">
+            <label for="password">Contraseña </label>
+            <input type="password" class="form__field" placeholder="Contraseña" name="password" id='password'>
+            <div class="error"></div>
+        </div>
+
+
+        <button id="submitButton">Enviar</button>
+    </form>
+
+    <script src="../js/registrarCliente.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/footer.js"></script>
+
+</body>

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/crudstyle.css">
-    
+
     <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
     <title>Agregar/Editar Vendedores</title>
 </head>
+
 <body>
     <script src="../js/Header.js"></script>
-    <div class="contenedor-productos2">
+    <div class="container">
+        <div class="contenedor-productos2">
             <h2>Agregar/Editar Vendedores</h2>
             <div class="botones">
                 <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button></a>
@@ -19,21 +22,24 @@
                 <table id="tablaVendedor">
                     <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Nombre</th>
-                          <th>Correo</th>
-                          <th>Telefono</th>
-                          <th>Contraseña</th>
-                          <th>Tramo</th>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>cedula</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Contraseña</th>
+                            <th>Tramo</th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody" >
-                        
+                    <tbody id="tableBody">
+
                     </tbody>
                 </table>
             </div>
+        </div>
     </div>
     <script src="../js/footer.js"></script>
     <script src="../js/agregarVendedores.js"></script>
 </body>
+
 </html>

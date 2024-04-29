@@ -1,82 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/landingPage.css">
-    <title>LandingPage</title>
+    <title>Landing Page</title>
 </head>
+
 <body>
+    <nav>
+        <img src="../../../dist/imagenes/NovaScript_logo_trans.png">
+        <button onclick="location.href='loginClientes.html'"> Login </button>
+        <button onclick="location.href='registroCliente.html'"> Registrarse </button>
 
-    <script src="../js/Header.js"></script>
+    </nav>
 
-    <section id="Catalogo">
-        <h2>Explora nuestro catalogo</h2>
-        <div class="separador"></div>
-        <div class="Vendedores">
-            <button id="verTodo"><a href="Catalogo.html">Ver Todos </a></button> 
-            <ul>
-                <li> <a href="Catalogo.html"><img src="../../../dist/imagenes/1.png" alt=""></a> <a href="Catalogo.html"><p>Fresas del Cielo</p></a></li>
-                <li> <a href="Catalogo.html"><img src="../../../dist/imagenes/2.png" alt=""></a> <a href="Catalogo.html"><p>AgriCool</p></a></li>
-                <li> <a href="Catalogo.html"><img src="../../../dist/imagenes/3.png" alt=""></a> <a href="Catalogo.html"><p>Loto's Bar</p></a></li>
-            </ul>
-        </div>
+    <section class="hero">
+        <div class="contenido-hero">
+            <h2>Agricultores CR </h2>
+            <p>La mejor tienda virtual en productos agricolas.</p>
+        </div> <!-- .contenido-hero -->
     </section>
 
-    <section id="articulos-interes">
-        <h2>Articulos que podrian interesarte</h2>
-        <div class="separador"></div>
-        <button>Ver Todos</button>
-        <div class="productos">
-            <div class="productos-1">
-    
-                <!-- Asegúrate de reemplazar los placeholders de src, alt, nombres y precios con tus imágenes, descripciones, nombres y precios reales -->
-                <article>
-                    <img src="../../../dist/imagenes/Fresas.png" alt="Fresas">
-                    <h3>Fresas</h3>
-                    <p>Precio: $100</p>
-                    <button>Comprar</button>
-                </article>
-                <article>
-                    <img src="../../../dist/imagenes/Banano.png" alt="Bananos">
-                    <h3>Banano</h3>
-                    <p>Precio: $200</p>
-                    <button>Comprar</button>
-                </article>
-                <article>
-                    <img src="../../../dist/imagenes/Cebolla.png" alt="Cebollas">
-                    <h3>Cebolla</h3>
-                    <p>Precio: $300</p>
-                    <button>Comprar</button>
-                </article>
-            </div>
-            <div class="productos-p2">
-                <article>
-                    <img src="../../../dist/imagenes/Cebolla.png" alt="Papayas">
-                    <h3>Papaya</h3>
-                    <p>Precio: $400</p>
-                    <button>Comprar</button>
-                </article>
-                <article>
-                    <img src="../../../dist/imagenes/Pepino.png" alt="Pepino">
-                    <h3>Pepino</h3>
-                    <p>Precio: $500</p>
-                    <button>Comprar</button>
-                </article>
-                <article>
-                    <img src="../../../dist/imagenes/Sandia.png" alt="Sandia">
-                    <h3>Sandia</h3>
-                    <p>Precio: $600</p>
-                    <button>Comprar</button>
-                </article>
+    <div class="contenedor">
+        <div class="contenedor-2">
+            <div class="informacion-2">
+                <h2> Bienvenido </h2>
+                <p>Explora nuestra tienda y descubre una amplia variedad de productos frescos, directamente de los
+                    campos costarricenses a tu mesa. Ya sea que busques ingredientes para tus recetas favoritas o
+                    simplemente desees disfrutar de la frescura y calidad de la agricultura local, estamos aquí para
+                    satisfacer tus necesidades.
+                </p>
             </div>
         </div>
-    </section>
-    <section id="registro">
-        <h2>Regístrate como Vendedor</h2>
-        <div class="separador"></div>
-        <p>Toma la decisión y empeza a emprender con nosotros,un portal seguro que te ayudará a elevar tus ventas y posicionarte el lugar que mereces. Únete a nuestro equipo ahora y registrate como vendedor haciendo click en el siguiente botón.</p>
-        <input type="submit" value="Registrarse">
-    </section>
+    </div>
+
+    <div class="contenedor">
+        <div class="contenedor-1">
+            <div class="informacion">
+                <h2>Sobre nuestra tienda</h2>
+                <p>
+                    En nuestra tienda en línea encontrarás una amplia variedad de productos agrícolas frescos y
+                    deliciosos, cultivados en los fértiles campos de Costa Rica. Desde jugosas piñas doradas y mangos
+                    maduros hasta vibrantes pimientos rojos y crujientes lechugas, nuestra selección está cuidadosamente
+                    elegida para satisfacer los paladares más exigentes.
+
+                </p>
+            </div>
+            <img src="../../../dist/imagenes/frutasyverduras.jpg">
+        </div>
+    </div>
+
+    <h3>Tramos</h3>
+    <div class="contenedor-3">
+
+        <div class="valores-fila-1">
+            <div class="valores">
+                <h2>Fresas del cielo</h2>
+                <img src="../../../dist/imagenes/1.png">
+            </div>
+            <div class="valores">
+                <h2>Frutas del Sol Costa Rica</h2>
+                <img src="../../../dist/imagenes/2.png">
+            </div>
+            <div class="valores">
+                <h2>Campo vivo</h2>
+                <img src="../../../dist/imagenes/3.png">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-row">
+
+                <div class="footer-links">
+                    <h4>Compañia</h4>
+                    <ul>
+                        <li><a href="">Nosotros</a></li>
+                        <li><a href="">Nuestros servicios</a></li>
+                        <li><a href="">Afiliate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-desc">
+                    <h2>Quieres ser vendedor?</h2>
+                    <button onclick="location.href='registrarVendedor.html'"> Haz click Aqui !! </button>
+                </div>
+                <div class="footer-links">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="">Preguntas</a></li>
+                        <li><a href="">Compras</a></li>
+                        <li><a href="">Envios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

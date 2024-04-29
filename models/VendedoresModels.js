@@ -14,6 +14,15 @@ module.exports = function(){
 
         return Vendedor;
 	}
+	this.traerUsuarios = async function(usuario){
+
+		let connection = await mongodb.connect(); // abrir la conexion
+		let tablaUsuarios = await connection.db("VentasApp2024").collection("Vendedores");
+		let respuesta = await tablaUsuarios.find( {tramo: usuario.tramo, password: usuario.password} ).toArray();
+		connection.close();
+
+		return respuesta;
+	}
 	
 	this.readById = async function(id){
 	

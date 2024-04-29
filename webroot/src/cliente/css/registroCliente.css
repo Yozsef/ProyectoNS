@@ -1,7 +1,7 @@
-* {
-	margin: 0;
-	padding: 0;
-
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 :root {
@@ -21,21 +21,23 @@ nav{
     width: auto;
     height: 4rem;
     background-color: var(--green);
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
 nav img{
     float: left;
     padding: 0%;
-    margin: 0.5rem 0rem 1rem 1rem;
+    margin: 0.5rem 80rem 1rem 1rem;
     width: 5%;
 }
-nav a{
-    color: white;
-    text-decoration: none;
+.botones{
+    margin-top: 0.5rem;
+    width: 100%;
 }
+
 nav button{
-    margin: 1.2rem 3rem 1rem 1rem;
-    float: right;
+    width: 20%;
+    margin: 0rem;
     background: none;
     border: none;
     font-family: "Roboto", sans-serif;
@@ -80,14 +82,15 @@ input[type="text"], input[type="number"], input[type="password"],input[type="ema
     box-sizing: border-box;
     display: inline-block;
 }
-
-
-.error {
-    color: red;
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.irVendedor{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
+body a:hover{
+    color: purple;
+}
+
 
 button {
     background-color: var(--green);
@@ -100,71 +103,42 @@ button {
     margin-top: 20px;
 }
 
-
-
-/* FOOTER */ 
-
-.container{
-    width: 100%;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.footer{
-    margin-top: 3rem;
-    background-color: var(--darkgreen);
-    padding:60px 0;
-}
-.footer-row{
-    display:flex;
-    justify-content: center;
-}
-
-.footer-links{
-    width: 15%;
-    padding: 0 10px;
-}
-.footer-desc{
-    text-align: center;
-    width: 35%;
-    margin: 0 15rem 0 8.7rem;
-}
-.footer-desc h2{
-    font-family: "Roboto", sans-serif;
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-    color: white;
+::placeholder{
+    opacity: 0.6;
     font-style: oblique;
 }
-.footer-desc p{
+.input-control{
+    height: 6rem;
+}
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 80%;
+}
+.input-control.success input {
+    border-color: #09c372;
+}
+.input-control.error input {
+    border-color: #ff3860;
+}
+.input-control .error {
+    color: #ff3860;
+    font-size: 13px;
     font-family: "Roboto", sans-serif;
-    color: white;
-    font-weight: 200;
-    font-style: oblique;
-    font-size: 1.2rem;
-    
-    
+    height: 5px;
+}
+form input:focus{
+    border-color: #609966; /* Cambia el color del borde cuando está enfocado */
+    outline: 0;
 }
 
-.footer-links h4{
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 500;
-    border-bottom: 2px solid var(--blue);
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-.footer-links ul li a{
-    font-size: 18px;
-    text-decoration: none;
-    color: var(--beige);
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    transition: all .3s ease;
-}
-
-.footer-links ul li a:hover {
-    color: white;
-    padding-left: 6px;
-}
 
 
