@@ -98,7 +98,7 @@ async function enviarFormulario() {
 	console.log("funciono")
 
 	Swal.fire({
-		title: "Productos",
+		title: "Solicitud",
 		text: respuesta.message,
 		icon: "success",
 

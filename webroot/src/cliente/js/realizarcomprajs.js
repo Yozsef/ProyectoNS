@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             div.classList.add("pedido");
             const total = item.cantidad * item.precio; // Calculate total price
             div.innerHTML = `
-                <img src="../../../dist/imagenes/${item.nombre.toLowerCase().replace(/\s/g, '')}.jpg">
+                <img src="${item.imageUrl}">
                 <p>${item.nombre}</p>
                 <p>Categoria: ${item.categoria}</p>
                 <p>Precio: ${item.precio}₡</p>

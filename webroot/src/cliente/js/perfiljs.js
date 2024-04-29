@@ -12,7 +12,14 @@ const boton = document.getElementById('boton')
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
-	validateInputs();
+	if(validateInputs()){
+		Swal.fire({
+			title: "",
+			text: "Perfil modificado",
+			icon: "success",
+	
+		})
+	};
 });
 
 const setError = (element, message) => {

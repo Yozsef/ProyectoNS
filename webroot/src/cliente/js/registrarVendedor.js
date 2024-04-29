@@ -157,7 +157,7 @@ const sendDataToServer = async () => {
         });
         const data = await response.json();
         Swal.fire({
-            title: "Productos",
+            title: "",
             text: data.message,
             icon: "success",
     
