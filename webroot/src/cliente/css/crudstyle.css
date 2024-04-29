@@ -21,6 +21,20 @@ body{
     justify-content: center;
 
 }
+
+.contenedor-productos2{
+    width: 50%;
+    overflow: hidden;
+    height: auto;
+    margin: 2rem 17rem 11rem 27rem;
+    padding: 2rem;
+    display: block;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    
+}
+
 form{
     width: auto;
 }

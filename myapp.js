@@ -14,6 +14,11 @@ app.use( express.urlencoded() );
 app.use(multer({ dest: `${carpetaRaiz}/uploads/` }).any());
 
 require("./controllers/ProductosController")(app);
+require("./controllers/ClientesController")(app);
+require("./controllers/VendedoresController")(app);
+require("./controllers/TramoController")(app);
+require("./controllers/SolicitudesController")(app);
+
 
 let ipservidor="0.0.0.0"; 
 let puerto= 3000; 

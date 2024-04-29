@@ -2,23 +2,21 @@ const boton = document.getElementById('btnGuardarProductos')
 
 async function recoger_datos2(){
     try {
-		var tablaSolicitudes = document.querySelector(".tabla table tbody");
-		var respuestaServidor = await fetch("/api/listarSolicitudes");
-		var listaSolicitudes = await respuestaServidor.json();
+		var tablaClientes = document.querySelector(".tabla table tbody");
+		var respuestaServidor = await fetch("/api/listarClientes");
+		var listaClientes = await respuestaServidor.json();
 
-		var numeroFilas = listaSolicitudes.length; // número elementos
+		var numeroFilas = listaClientes.length; // número elementos
 
-		tablaSolicitudes.innerHTML = ""; // esto "limpia" el contenido anterior
-      for(var solicitudes of listaSolicitudes){
-        var elJSONenString = JSON.stringify(solicitudes);
+		tablaClientes.innerHTML = ""; // esto "limpia" el contenido anterior
+      for(var cliente of listaClientes){
+        var elJSONenString = JSON.stringify(cliente);
         var nuevaFila = `<tr>
-                    <td>${solicitudes._id}</td>
-                    <td>${solicitudes.nombre}</td>
-                    <td>${solicitudes.cedula}</td>
-                    <td>${solicitudes.telefono}</td>
-                    <td>${solicitudes.correo}</td>
-                    <td>${solicitudes.tramo}</td>
-                    <td>${solicitudes.Estado}</td>
+                    <td>${cliente._id}</td>
+                    <td>${cliente.nombre}</td>
+                    <td>${cliente.telefono}</td>
+                    <td>${cliente.correo}</td>
+                    <td>${cliente.password}</td>
                     <td>
                         <i class="fa-solid fa-pencil">
                             <span style="display:none;">${elJSONenString}</span>
@@ -30,7 +28,7 @@ async function recoger_datos2(){
 					    </i> 
                     </td>
                 </tr>`
-		tablaSolicitudes.innerHTML += nuevaFila;
+		tablaClientes.innerHTML += nuevaFila;
       }
 
       var botonesEditar = document.querySelectorAll("tbody .fa-pencil");
@@ -42,9 +40,9 @@ async function recoger_datos2(){
 				var yo = event.target;
 				var miSpanInterno = yo.querySelector("span");
 
-				sessionStorage.setItem("solicitudEditar", miSpanInterno.innerHTML);
+				sessionStorage.setItem("productoEditar", miSpanInterno.innerHTML);
                 
-				document.location.href = "agregarSolicitud.html";
+				document.location.href = "agregarCliente.html";
 				//titulo.value = "Editar Productos"
 			});
 		}
@@ -54,9 +52,9 @@ async function recoger_datos2(){
 				var yo = event.target;
 				var miSpanInterno = yo.querySelector("span");
 
-				sessionStorage.setItem("solicitudEliminar", miSpanInterno.innerHTML);
+				sessionStorage.setItem("productoEliminar", miSpanInterno.innerHTML);
 				console.log(miSpanInterno)
-				document.location.href = "agregarSolicitud.html";
+				document.location.href = "agregarCliente.html";
 			});
 		}
     }
@@ -76,15 +74,19 @@ async function enviarFormulario() {
 	var datosFormulario = new FormData(formulario);// multipart
 
 	var url = "?";
-	var productoSession = sessionStorage.getItem("solicitudEditar");
-    var productoSessionEliminar = sessionStorage.getItem("solicitudEliminar")
+	var productoSession = sessionStorage.getItem("productoEditar");
+    var productoSessionEliminar = sessionStorage.getItem("productoEliminar")
 	if (productoSession != null) {
-		url = "/api/actualizarSolicitud";
+		url = "/api/actualizarclientes";
 		console.log('actualizar')
 	}else if(productoSessionEliminar != null){
-		url = "/api/eliminarSolicitud";
+		url = "/api/eliminarCliente";
 		metodo = false;
     }
+	else {
+		url = "/api/agregarCliente";
+		console.log('guardar')
+	}
 
 	if(metodo == true){
 		var respuestaServidor = await fetch(url, { method: "post", body: datosFormulario });
@@ -103,71 +105,63 @@ async function enviarFormulario() {
 		icon: "success",
 
 	}).then(function () {
-		window.location = "solicitudes.html";
+		window.location = "clientes.html";
 	});
 
 }
 
 function validarEdicion() {
 
-	var productoSession = sessionStorage.getItem("solicitudEditar");
+	var productoSession = sessionStorage.getItem("productoEditar");
 	var formulario = document.querySelector(".contenedor-productos form");
 	var inputId = formulario.querySelector("input[name='_id']");
 	var inputNombre = formulario.querySelector("input[name='nombre']");
-    var inputCedula = formulario.querySelector("input[name='cedula']");
 	var inputCorreo = formulario.querySelector("input[name='correo']");
 	var inputTelefono = formulario.querySelector("input[name='telefono']");
-	var inputTramo = formulario.querySelector("input[name='tramo']");
-    var inputEstado = formulario.querySelector("input[name='estado']");
+	var inputPassword = formulario.querySelector("input[name='password']");
 
 	
 
 	if (productoSession != null) { // EDITAR
 
-		var solicitudEditar = JSON.parse(productoSession);
+		var productoEditar = JSON.parse(productoSession);
 
-		inputId.value = solicitudEditar._id;
-		inputNombre.value = solicitudEditar.nombre;
-        inputCedula.value = solicitudEditar.cedula;
-		inputTelefono.value = solicitudEditar.telefono;
-        inputCorreo.value = solicitudEditar.correo;
-		inputTramo.value = solicitudEditar.tramo;
-        inputEstado.value = solicitudEditar.Estado;
-        
+		inputId.value = productoEditar._id;
+		inputNombre.value = productoEditar.nombre;
+		inputTelefono.value = productoEditar.telefono;
+        inputCorreo.value = productoEditar.correo;
+		inputPassword.value = productoEditar.password;
 		
 
 	}
 }
 function validarEliminar() {
 
-	var productoSession = sessionStorage.getItem("solicitudEliminar");
+	var productoSession = sessionStorage.getItem("productoEliminar");
 	var formulario = document.querySelector(".contenedor-productos form");
 	var inputId = formulario.querySelector("input[name='_id']");
 	var inputNombre = formulario.querySelector("input[name='nombre']");
-    var inputCedula = formulario.querySelector("input[name='cedula']");
 	var inputCorreo = formulario.querySelector("input[name='correo']");
 	var inputTelefono = formulario.querySelector("input[name='telefono']");
-	var inputTramo = formulario.querySelector("input[name='tramo']");
-    var inputEstado = formulario.querySelector("input[name='estado']");
+	var inputPassword = formulario.querySelector("input[name='password']");
 
 
 	if (productoSession != null) { // EDITAR
 
-		var solicitudEliminar = JSON.parse(productoSession);
+		var productoEliminar = JSON.parse(productoSession);
 
-		inputId.value = solicitudEliminar._id;
-		inputNombre.value = solicitudEliminar.nombre;
-        inputCedula.value = solicitudEliminar.cedula;
-		inputTelefono.value = solicitudEliminar.telefono;
-        inputCorreo.value = solicitudEliminar.correo;
-		inputTramo.value = solicitudEliminar.tramo;
-        inputEstado.value = solicitudEliminar.Estado;
+        inputId.value = productoEliminar._id;
+		inputNombre.value = productoEliminar.nombre;
+		inputTelefono.value = productoEliminar.telefono;
+        inputCorreo.value = productoEliminar.correo;
+		inputPassword.value = productoEliminar.password;
+
 	}
 }
 
 function irAgregar(){
 	sessionStorage.clear();
-	location.href='agregarSolicitud.html'
+	location.href='agregarCliente.html'
 }
 function inicializarpagina(){
     try{
@@ -190,3 +184,4 @@ function inicializarpagina(){
 window.onload = function( ){
     inicializarpagina()
 }
+
