@@ -27,6 +27,7 @@ document.getElementById("submit").addEventListener("click", async function(event
     console.log('valido');
     sendDataToServer();
     console.log('Data sent');
+    location.reload();
   }
 });
 
@@ -77,4 +78,60 @@ function sendDataToServer() {
     console.error("Error:", error);
     // Handle error
   });
+}
+
+window.onload = async function () {
+  try {
+      const comentariosSection = document.querySelector(".comentarios");
+      const response = await fetch("/api/listarCalificar");
+      const listaComentarios = await response.json();
+      
+      comentariosSection.innerHTML = "";
+
+      listaComentarios.forEach(comentario => {
+          // Create elements
+          const nuevaDivision = document.createElement('div');
+          const profileImg = document.createElement('img');
+          const comentInfo = document.createElement('div');
+          const dateSpan = document.createElement('span');
+          const commentParagraph = document.createElement('p');
+          const productImg = document.createElement('img');
+
+          // Set attributes and classes
+          profileImg.src = "../../../dist/imagenes/perfil.png";
+          profileImg.id = "profileImg";
+          nuevaDivision.id = "division";
+          comentInfo.id = "comentInfo";
+
+          nuevaDivision.appendChild(profileImg);
+          
+          // Create star icons for the rating
+          for (let i = 0; i < 5; i++) {
+              const star = document.createElement('span');
+              star.classList.add('fa', 'fa-star');
+              if (comentario.estrella && i < comentario.estrella) {
+                  star.classList.add('checked');
+              }
+              comentInfo.appendChild(star);
+          }
+
+          // Set content
+          dateSpan.textContent = comentario.date;
+          commentParagraph.textContent = comentario.coment;
+          productImg.src = "";
+
+          // Append elements
+          comentInfo.appendChild(dateSpan);
+          comentInfo.appendChild(commentParagraph);
+          comentInfo.appendChild(productImg);
+          
+          // Append elements to nuevaDivision
+          nuevaDivision.appendChild(comentInfo);
+          
+          
+          comentariosSection.appendChild(nuevaDivision);
+      });
+  } catch (error) {
+      console.error("Error fetching comments:", error);
+  }
 }

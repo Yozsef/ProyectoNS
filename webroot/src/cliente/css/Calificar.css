@@ -247,6 +247,11 @@ section {
     padding-bottom: 3%;
 }
 
+#division {
+    display: flex;
+    margin-top: 2%;
+}
+
 #profileImg {
  margin-top: 1%;
     width: 80px;
@@ -274,6 +279,19 @@ section {
     font-family: "Roboto", sans-serif;
     height: 20px;
     margin-bottom: 20px;
+}
+
+
+
+#comentInfo {
+    flex-grow: 1; /* Allow the content to expand and fill the available space */
+    padding-left: 10px; /* Add some padding to separate the image from the content */
+}
+
+#profileImg {
+    width: 80px;
+    height: 80px;
+    padding: 0.5%;
 }
 
 /*footer*/
@@ -339,6 +357,7 @@ section {
     margin-top: 15px;
     margin-bottom: 15px;
     transition: all .3s ease;
+    
 }
 
 .footer-links ul li a:hover {

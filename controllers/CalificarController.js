@@ -20,7 +20,7 @@ module.exports = function (app) {
             let producto = { 
                 _id: productId,
                 estrella: coment, 
-                rating: rating, 
+                coment: rating, 
                 imageUrl: imageUrl || null,
             };
             let result = await model.create(producto);
