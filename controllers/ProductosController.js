@@ -96,6 +96,23 @@ module.exports = function(app){
             response.status(500).json({ message: "Error interno del servidor" });
         }
     });
+	app.delete("/api/eliminarproducto", async function(request, response){
+
+		// recoger los datos de producto
+		// let nombre = request.body.nombre;
+		let {_id} = request.body;
+
+
+		// invocar el modelo
+		let resultadoUpdate = await model.deleteOne(_id);
+
+		let mensaje = "No Eliminado";
+		if(resultadoUpdate.acknowledged){
+			mensaje = "Eliminado";
+		}
+
+		response.send({message: mensaje});
+	});
 };
 
 
@@ -111,7 +128,7 @@ function elToqueDelaImagen(request){
 	let extension = archivo.originalname.split(".");
 	extension = extension[extension.length - 1];
 
-	let imageUrl = `../dist/imagenes/${archivo.filename}.${extension}`;
+	let imageUrl = `/dist/imagenes/${archivo.filename}.${extension}`;
 
 	let viejaRuta = `${archivo.destination}${archivo.filename}`;
 	let nuevaRuta = `webroot/${imageUrl}`;
