@@ -20,6 +20,7 @@ require("./controllers/TramoController")(app);
 require("./controllers/SolicitudesController")(app);
 require("./controllers/CarritoController")(app);
 require("./controllers/SolicitudController")(app);
+require("./controllers/CalificarController")(app);
 
 
 let ipservidor="0.0.0.0"; 

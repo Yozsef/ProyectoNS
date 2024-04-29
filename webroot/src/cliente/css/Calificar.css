@@ -176,25 +176,25 @@ hr {
     
 }
 
-.form-container {
+#form-container {
     text-align: center;
 }
 
-.form-container h1 {
+#form-container h1 {
     margin-bottom: 20px;
     color: white;
 }
 
-.form-container label{
+#form-container label{
     font-weight: bold;
     color: white;
     padding: 3%;
 }
 
-.form-container input {
+#form-container input {
     margin: 0 5px;
 }
-.form-container textarea {
+#form-container textarea {
     width: calc(100% - 20px);
     /* Subtracting 20px for padding */
     padding: 10px;
@@ -208,7 +208,7 @@ hr {
 
 
 
-.form-container button {
+#form-container button {
     background-color: var(--blue);
     color: white;
     padding: 10px 20px;
@@ -217,15 +217,15 @@ hr {
     cursor: pointer;
 }
 
-.form-container button.cancel {
+#form-container button.cancel {
     background-color: var(--red);
 }
 
-.form-container button:hover {
+#form-container button:hover {
     background-color: #0d355d;
 }
 
-.form-container button.cancel:hover {
+#form-container button.cancel:hover {
     background-color: #b30000;
 }
 
@@ -266,6 +266,14 @@ section {
 
 .checked {
     color: orange;
+}
+
+.input-control .error {
+    color: red;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    height: 20px;
+    margin-bottom: 20px;
 }
 
 /*footer*/

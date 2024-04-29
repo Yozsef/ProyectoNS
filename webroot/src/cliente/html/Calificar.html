@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/Calificar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="../js/calificar.js"></script>
     <title>Calificar</title>
 </head>
 
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="resena">
-                <button class="open-button" onclick="openForm()">Escribir Resena</button>
+                <button class="open-button" id="openform">Escribir Resena</button>
             </div>
         </div>
 
@@ -45,27 +46,32 @@
     </main>
 
     <!-- POP UP -->
-    <script src="../js/calificar.js"></script>
     <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-            <h1>Luis Cuadra</h1>
-            <ul class="likert">
-                <li> 1 </li>
-                <li><input type="radio" name="guilty" value="1" /></li>
-                <li><input type="radio" name="guilty" value="2" /></li>
-                <li><input type="radio" name="guilty" value="3" /></li>
-                <li><input type="radio" name="guilty" value="4" /></li>
-                <li><input type="radio" name="guilty" value="5" /></li>
-                <li> 5 </li>
-            </ul><br>
-            <label for="description">Descripcion:</label><br>
-            <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-           
-            <label for="image">Imagen del producto:</label><br>
-            <input type="file" id="image" name="image" accept="image/*" required><br><br>
-          
-            <button type="submit" class="btn">Post</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <form action="" id="form-container">
+            <h1>Usuario</h1>
+            <div class="input-control">
+                <ul class="likert">
+                    <li> 1 </li>
+                    <li><input type="radio" name="punto" value="1" /></li>
+                    <li><input type="radio" name="punto" value="2" /></li>
+                    <li><input type="radio" name="punto" value="3" /></li>
+                    <li><input type="radio" name="punto" value="4" /></li>
+                    <li><input type="radio" name="punto" value="5" /></li>
+                    <li> 5 </li>
+                </ul><br>
+                <label for="description">Descripcion:</label><br>
+                <textarea id="rating" name="rating" rows="4" cols="50"></textarea><br><br>
+                
+
+                <label for="image">Imagen del producto:</label><br>
+                <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+                <div class="error"></div>
+            </div>
+
+
+            <button type="button" class="btn" id="submit"> submit </button>
+            <button type="button" class="btn cancel" id="close"> Close </button>
         </form>
     </div>
 
@@ -74,49 +80,12 @@
 
     <section class="comentarios">
         <div id="titulo"> Reseñas del producto</div>
-        <div>
-            <div id="division">
-                <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
-                <div id="comentInfo">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span>22/10/2024</span>
-                    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum
-                        ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N.
-                        del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
-                        de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino
-                        que tambien ingresó como texto de rel</p>
 
-                    <img src="../../../dist/imagenes/Fresas.png" alt="">
-                </div>
-            </div>
-        </div>
 
-        <div>
-            <div id="division">
-                <img id="profileImg" src="../../../dist/imagenes/perfil.png" alt="">
-                <div id="comentInfo">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span>22/10/2024</span>
-                    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum
-                        ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N.
-                        del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló
-                        de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino
-                        que tambien ingresó como texto de rel</p>
-                    <img src="../../../dist/imagenes/land.png" alt="">
-                    <img src="../../../dist/imagenes/Zanahoria.png" alt="">
-                </div>
-            </div>
-        </div>
+
 
     </section>
+
     <footer class="footer">
         <div class="container">
 
