@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+:root {
+    --blue: #1d538a;
+    --darkgreen: #40513b;
+    --lightgren: #9dc08b;
+    --green: #609966;
+    --beige: #EDF1d6;
+}
+
+body {
+    background-color: beige;
+    background-color: var(--beige);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ----------------------------------------- */
+
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--green);
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+#contenidoIzquieda {
+    display: flex;
+    align-items: center;
+    width: 10%; 
+
+}
+
+#logo {
+    height: 30%;
+    width: 60%;
+    margin-right: 40px;
+    -webkit-transition:all .3s ease;
+}
+#logo:hover{
+    -webkit-transform:scale(1.2);
+}
+
+#contenidoCentral {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: auto;
+    width:70%;
+}
+
+
+#potatoes {
+    padding-left: 5%;
+    width: 10%;
+    height: 10%;
+
+}
+
+#contenidoCentral button a {
+   
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    width: 100%;
+    margin-right: 35rem;
+
+}
+
+#contenidoCentral button {
+    background: none; 
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size: 250%; 
+    color: black;
+    font-weight: 600;
+    -webkit-transition:all .2s ease;
+   
+}
+
+
+#contenidoDerecha {
+
+    display: flex;
+    align-items: center;
+    width: 13%;
+
+}
+
+
+
+
+
+#trolley {
+
+    width: 45px;
+    height: 45px;
+    padding-right: 10px;
+    -webkit-transition:all .2s ease;
+}
+#trolley:hover{
+    -webkit-transform:scale(1.25);
+}
+
+
+
+#contenidoDerecha button {
+    margin: 1.2rem 2rem 1rem 1rem;
+    float: right;
+    background: none;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-size:100%;
+    color: #ffffff;
+    font-weight: 700;
+    -webkit-transition:all .2s ease;
+
+}
+#contenidoDerecha a{
+    color: white;
+    text-decoration: none;
+}
+
+#contenidoDerecha button:hover {
+    background-size:cover;
+    -webkit-transform:scale(1.25);
+}
