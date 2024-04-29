@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Clientes</title>
+    <link rel="stylesheet" type="text/css" href="../css/registroCliente.css">
+</head>
+
+<body>
+    <nav>
+        <img src="../../../dist/imagenes/NovaScript_logo.png">
+        <button> <a href="">Salir</a> </button>
+        <button><a href="Catalogo.html">Catalogo</a></button>
+    </nav>
+
+    <h2>Login Clientes</h2>
+
+    <form id="paymentForm">
+        <div class="input-control">
+            <label for="cedula">Cedula:</label>
+            <input type="text" id="cedula" name="cedula" placeholder="Cedula">
+            <div class="error"></div>
+        </div>
+
+        <div class="input-control">
+            <label for="password">Contraseña </label>
+            <input type="password" class="form__field" placeholder="Contraseña" name="password" id='password'>
+            <div class="error"></div>
+        </div>
+
+
+        <button id="submitButton">Enviar</button>
+    </form>
+
+    <script src="../js/loginClientes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/footer.js"></script>
+
+</body>
