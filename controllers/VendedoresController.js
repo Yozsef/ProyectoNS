@@ -1,5 +1,6 @@
 let {Router} = require('express');
 let fs = require('fs');
+const crypto = require('crypto');
 
 let VendedorModel = require("../models/VendedoresModels");
 
@@ -18,17 +19,31 @@ module.exports = function(app){
 
 	app.post("/api/agregarVendedor", async function(request, response){
 
-		let {nombre,telefono,correo,tramo,password } = request.body;
-		
+		let {nombre,telefono,correo,tramo,password, cedula } = request.body;
+		// encriptar contraseña, para guardarla encriptada en la BD
+			// llave de encriptación
+			const key = 'mysecretkey';
+			// algoritmo de encriptación
+			const algorithm = 'aes-256-cbc'; // puede desencriptar también
+			
+			// crear un objeto de cifrado con el algoritmo y llave definidas
+			const cipher = crypto.createCipher(algorithm, key);
+
+			// encriptar la contraseña que está en texto plano
+			let encrypted = cipher.update(  password  , 'utf8', 'hex');
+			encrypted += cipher.final('hex');
+
 		let nuevoVendedor = {
 			_id: "",
 			nombre: nombre,
+			cedula: cedula,
 			telefono: parseInt(telefono),
             correo: correo,
 			tramo: tramo,
-            password: password
+            password: encrypted
 	
 		};
+		
 		
 		let resultadoInsert = await model.create(nuevoVendedor);
 
@@ -39,6 +54,58 @@ module.exports = function(app){
 
 		response.send({message: mensaje});
 
+	});
+	
+
+	app.post("/api/loginVendedor", async function(request, response){
+		try{
+			// tomar datos de entrada (ya vienen sanitizados, pero mejor sanitizar aquí también)
+			let tramo = request.body.tramo;
+			let password = request.body.password;
+			// sanitizar aquí ...
+
+
+			// encriptar contraseña, para compararla con la encriptada de la BD
+			// llave de encriptación
+			const key = 'mysecretkey';
+			// algoritmo de encriptación
+			const algorithm = 'aes-256-cbc'; // puede desencriptar también
+			
+			// crear un objeto de cifrado con el algoritmo y llave definidas
+			const cipher = crypto.createCipher(algorithm, key);
+
+			// encriptar la contraseña que está en texto plano
+			let encrypted = cipher.update(  password  , 'utf8', 'hex');
+			encrypted += cipher.final('hex');
+
+			// prueba de desarrollador
+			console.log(encrypted);
+
+
+			
+			// invocar el modelo
+			let usuario =  {tramo: tramo, password: encrypted};
+
+			let listaUsuarios = await model.traerUsuarios(usuario);
+			
+			// Autenticar
+			usuario = listaUsuarios; // filtrará desde Mongo
+			if(usuario.length > 0){
+				usuario = usuario[0]; // tomamos el único elemento de la lista
+
+
+					
+					response.send( 
+						{ message: "Logueo Correcto"
+						}
+					);
+				}else{
+				response.send( { message: "Logueo incorrecto" } );
+				
+			}
+		}
+		catch(error){
+		}
 	});
 
 

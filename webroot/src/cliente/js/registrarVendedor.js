@@ -58,6 +58,14 @@ const validateInputs = () => {
     const direccionValue = direccion.value.trim();
     const fileUploadValue = fileUpload.value.trim();
     const nombreNegocioValue = nombreNegocio.value.trim();
+    let nombreBol = false;
+    let cedulaBol = false;
+	let correoBol = false;
+	let telefonoBol = false;
+    let direccionBol = false;
+    let fileBol = false;
+    let nombreNegocioBol = false;
+	let passwordBol = false;
 
     if (nombreValue === '') {
         setError(nombre, 'El nombre es requerido')
@@ -65,12 +73,14 @@ const validateInputs = () => {
         setError(nombre, 'Necesita ingresar un nombre valido')
     } else {
         setSuccess(nombre)
+        nombreBol = true
     }
 
     if (nombreNegocioValue === '') {
         setError(nombreNegocio, 'El nombre es requerido')
     } else {
         setSuccess(nombreNegocio)
+        nombreNegocioBol = true;
     }
 
     if (cedulaValue === ' ') {
@@ -79,6 +89,7 @@ const validateInputs = () => {
         setError(cedula, 'La cédula debe contener 9, 11 o 12 dígitos')
     } else {
         setSuccess(cedula)
+        cedulaBol = true;
     }
 
     if (correoValue === '') {
@@ -87,6 +98,7 @@ const validateInputs = () => {
         setError(correo, 'Necesita ingresar un correo valido')
     } else {
         setSuccess(correo)
+        correoBol = true;
     }
 
     if (numTelefonoValue === '') {
@@ -95,11 +107,13 @@ const validateInputs = () => {
         setError(numTelefono, 'Ingrese un numero de telefono valido');
     } else {
         setSuccess(numTelefono)
+        telefonoBol = true;
     }
     if (direccionValue === '') {
         setError(direccion, 'Necesita ingresar una direccion')
     } else {
         setSuccess(direccion)
+        direccionBol = true;
     }
 
     if (fileUpload.files.length === 0) {
@@ -113,9 +127,12 @@ const validateInputs = () => {
             setError(fileUpload, 'Solo se permiten archivos PDF');
         } else {
             setSuccess(fileUpload);
+            fileBol = true;
         }
     } 
-    return true;
+    if(nombreBol == true && nombreNegocioBol == true && cedulaBol == true && correoBol == true && telefonoBol == true && fileBol == true && direccionBol == true){
+        return true
+    }
 
 }
 
@@ -131,7 +148,7 @@ const sendDataToServer = async () => {
     };
 
     try {
-        const response = await fetch('/api/guardarSolicitud', {
+        const response = await fetch('/api/agregarSolicitud', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,7 +156,15 @@ const sendDataToServer = async () => {
             body: JSON.stringify(formData)
         });
         const data = await response.json();
-        console.log(data.message);
+        Swal.fire({
+            title: "Productos",
+            text: data.message,
+            icon: "success",
+    
+        }).then(function () {
+            window.location = "clientes.html";
+        });
+    
     } catch (error) {
         console.error('Error:', error);
     }

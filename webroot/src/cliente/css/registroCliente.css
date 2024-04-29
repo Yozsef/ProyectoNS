@@ -22,20 +22,23 @@ nav{
     height: 4rem;
     background-color: var(--green);
     overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
 nav img{
     float: left;
     padding: 0%;
-    margin: 0.5rem 0rem 1rem 1rem;
+    margin: 0.5rem 80rem 1rem 1rem;
     width: 5%;
 }
-nav a{
-    color: white;
-    text-decoration: none;
+.botones{
+    margin-top: 0.5rem;
+    width: 100%;
 }
+
 nav button{
-    margin: 1.2rem 3rem 1rem 1rem;
-    float: right;
+    width: 20%;
+    margin: 0rem;
     background: none;
     border: none;
     font-family: "Roboto", sans-serif;
@@ -80,7 +83,14 @@ input[type="text"], input[type="number"], input[type="password"],input[type="ema
     box-sizing: border-box;
     display: inline-block;
 }
-
+.irVendedor{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+body a:hover{
+    color: purple;
+}
 
 
 button {

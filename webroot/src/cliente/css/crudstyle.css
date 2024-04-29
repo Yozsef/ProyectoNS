@@ -21,12 +21,15 @@ body{
     justify-content: center;
 
 }
+.container{
+    display: flex;
+    justify-content: center;
+}
 
 .contenedor-productos2{
-    width: 50%;
+    width: auto;
     overflow: hidden;
     height: auto;
-    margin: 2rem 17rem 11rem 27rem;
     padding: 2rem;
     display: block;
     background-color: #f0f0f0;
@@ -224,10 +227,12 @@ label[for="file-upload"]{
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ffffff;
+    padding: 1rem 1.5rem 1rem 1.5rem;
 }
 .tabla th{
     background-color: #f0f0f0;
     font-family: "Roboto", sans-serif;
+    
 }
 .tabla tr:hover {
     background-color: #d1d1d1b4;

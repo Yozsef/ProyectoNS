@@ -18,17 +18,17 @@ module.exports = function(app){
 
 	app.post("/api/agregarSolicitud", async function(request, response){
 
-		let {nombre,cedula,numTelefono,correo,nombreNegocio, fileUpload } = request.body;
+		let {nombre, numTelefono, correo, nombreNegocio, fileUpload, cedula } = request.body;
 		
 		let nuevoSolicitud = {
-            _id:"",
-            nombre: nombre,
-            cedula: parseInt(cedula),
-            Telefono: parseInt(numTelefono),
-            Correo: correo,
-            NombreNegocio: nombreNegocio,
-            FileUpload: fileUpload,
-            Estado: "En Espera"
+			_id: "",
+			nombre: nombre,
+			NombreNegocio: nombreNegocio,
+			cedula: cedula,
+			Correo: correo,
+			Telefono: parseInt(numTelefono),
+			fileUpload:fileUpload,
+			Estado: "EnEspera"
         };
 		
 		let resultadoInsert = await model.create(nuevoSolicitud);

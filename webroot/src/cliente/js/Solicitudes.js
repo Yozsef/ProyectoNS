@@ -15,9 +15,9 @@ async function recoger_datos2(){
                     <td>${solicitudes._id}</td>
                     <td>${solicitudes.nombre}</td>
                     <td>${solicitudes.cedula}</td>
-                    <td>${solicitudes.telefono}</td>
-                    <td>${solicitudes.correo}</td>
-                    <td>${solicitudes.tramo}</td>
+                    <td>${solicitudes.Telefono}</td>
+                    <td>${solicitudes.Correo}</td>
+                    <td>${solicitudes.NombreNegocio}</td>
                     <td>${solicitudes.Estado}</td>
                     <td>
                         <i class="fa-solid fa-pencil">
