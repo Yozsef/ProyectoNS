@@ -21,7 +21,7 @@ async function login(){
 			if(respuesta.message == "Logueo incorrecto"){
 				return
 			}else{
-				window.location = "paginaVendedor.html";
+				window.location = "Catalogo.html";
 			}
 			
 		});
