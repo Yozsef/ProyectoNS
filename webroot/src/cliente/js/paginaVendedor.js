@@ -37,7 +37,6 @@ const validateInputs = () => {
 	const precioProductoValue = precioProducto.value.trim();
 	const cantidadProductoValue = cantidadProducto.value.trim();
 	const categoriaProductoValue = categoriaProducto.value.trim();
-	const idProductoValue = idProducto.value.trim();
 	let nombreBol = false;
 	let precioBol = false;
 	let cantidadBol = false;
@@ -79,13 +78,7 @@ const validateInputs = () => {
 		categoriaBol = true;
 	}
 
-	if (idProductoValue === '') {
-		setError(idProducto, 'El ID es requerido')
-	} else {
-		setSuccess(idProducto)
-		idProductoBol = true;
-	}
-	if (nombreBol == true && precioBol == true && cantidadBol == true && categoriaBol == true && idProductoBol == true) {
+	if (nombreBol == true && precioBol == true && cantidadBol == true && categoriaBol == true) {
 		return true;
 	}
 
@@ -292,7 +285,7 @@ function inicializarPagina() {
 			}
 		});
 		
-
+		
 		validarEdicion();
 		validarEliminar();
 	}

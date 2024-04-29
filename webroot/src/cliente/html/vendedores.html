@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/crudstyle.css">
-    <script defer src="../js/clientes.js"></script>
+    
+    <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
     <title>Agregar/Editar Vendedores</title>
 </head>
 <body>
     <script src="../js/Header.js"></script>
-    <div class="contenedor-productos">
-        <form id="formulario">
+    <div class="contenedor-productos2">
             <h2>Agregar/Editar Vendedores</h2>
             <div class="botones">
-                <button value="agregar" id="agregarBtn" onclick="location.href='agregarVendedor.html'"> Agregar </button></a>
-                <button value="buscar" id="buscarBtn">Buscar</button>
+                <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button></a>
             </div>
             <div class="tabla">
-                <table id="tablaProductos">
+                <table id="tablaVendedor">
                     <thead>
                         <tr>
                           <th>ID</th>
@@ -29,14 +28,12 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody" >
-                        <td>
-
-                        </td>
+                        
                     </tbody>
                 </table>
             </div>
-        </form>
     </div>
     <script src="../js/footer.js"></script>
+    <script src="../js/agregarVendedores.js"></script>
 </body>
 </html>

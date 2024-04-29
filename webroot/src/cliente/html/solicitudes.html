@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/crudstyle.css">
     <title>Solicitudes</title>
+    <script defer src="../js/solicitudes.js"></script>
+    <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <script src="../js/Header.js"></script>
-    <div class="contenedor-productos">
-        <form id="formulario">
+    <div class="contenedor-productos2">
             <h2>Solicitudes</h2>
+            <div class="botones">
+                <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button>
+
+            </div>
             <div class="tabla">
                 <table id="tablaProductos">
                     <thead>
                         <tr>
                           <th>ID Solicitud</th>
                           <th>Nombre Solicitante</th>
+                          <th>Cedula</th>
                           <th>Telefono</th>
                           <th>Correo</th>
                           <th>Tramo</th>
@@ -24,13 +30,10 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody" >
-                        <td>
 
-                        </td>
                     </tbody>
                 </table>
             </div>
-        </form>
     </div>
     <script src="../js/footer.js"></script>
 </body>

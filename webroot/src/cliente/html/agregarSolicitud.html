@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/crudstyle.css">
-    <title>Agregar Cliente</title>
+    <title>Editar/Eliminar Solicitud</title>
 </head>
+
 <body>
     <script src="../js/Header.js"></script>
-    <h2>Agregar Cliente</h2>
+    <h2>Editar/Eliminar Solicitud</h2>
     <div class="contenedor-productos">
         <form id="formulario">
             <div class="wrapper">
@@ -18,37 +20,49 @@
                     <div class="error"></div>
                 </div>
                 <div class="input-control">
-                    <label>Nombre cliente: </label>
+                    <label>Nombre Solicitante: </label>
                     <input type="text" class="form__field" placeholder="Nombre" id="nombre" name="nombre">
                     <div class="error"></div>
                 </div>
+                <div class="input-control">
+                    <label>Cedula: </label>
+                    <input type="number" class="form__field" placeholder="Telefono" id="telefono" name="cedula">
+                    <div class="error"></div>
+                </div>
+            </div>
+            <div class="wrapper-2">
                 <div class="input-control">
                     <label>Telefono: </label>
                     <input type="number" class="form__field" placeholder="Telefono" id="telefono" name="telefono">
                     <div class="error"></div>
                 </div>
-            </div>
-            <div class="wrapper-2">
                 <div class="input-control">
                     <label>Correo: </label>
                     <input type="text" class="form__field" placeholder="Correo" id="correo" name="correo">
                     <div class="error"></div>
                 </div>
                 <div class="input-control">
-                    <label>Contrasena: </label>
-                    <input type="text" class="form__field" placeholder="Contraseña" id="password" name="password">
+                    <label>Tramo: </label>
+                    <input type="text" class="form__field" placeholder="Tramo" id="tramo" name="tramo">
                     <div class="error"></div>
                 </div>
-            </div>    
-            
+            </div>
+            <div class="wrapper-2">
+                <div class="input-control">
+                    <label>Estado: </label>
+                    <input type="text" class="form__field" placeholder="Estado" id="estado" name="estado">
+                    <div class="error"></div>
+                </div>
+            </div>
             <div class="botonAgregar">
-                 <button value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
+                <button value="Guardar" id="btnGuardarProductos" class="btnGuardarProductos"> Guardar </button>
             </div>
-            </div>
-        </form>
+    </div>
+    </form>
     </div>
     <script src="../js/footer.js"></script>
-    <script src="../js/agregarCliente.js"></script>
+    <script src="../js/solicitudes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
 </html>

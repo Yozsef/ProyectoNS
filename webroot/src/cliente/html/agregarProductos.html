@@ -14,6 +14,11 @@
         <form>
             <div class="wrapper">
                 <div class="input-control">
+                    <label>ID: </label>
+                    <input type="text" class="form__field" placeholder="Nombre" id="id" name="_id">
+                    <div class="error"></div>
+                </div>
+                <div class="input-control">
                     <label>Nombre producto: </label>
                     <input type="text" class="form__field" placeholder="Nombre" id="nombreProducto" name="nombre">
                     <div class="error"></div>
@@ -37,11 +42,6 @@
                     <label for="file-upload" class="custom-file-input" value="imagen">Subir imagen producto </label>
                     <input type="file" id="file-upload" name="imageUrl" accept="*/*">
                     <img class="imageUrlPreview" style="width: 100px; height: 100px;">
-                </div>
-                <div class="input-control">
-                    <label>ID: </label>
-                    <input type="text" class="form__field" placeholder="ID" id="idProducto" name="_id">
-                    <div class="error"></div>
                 </div>
             </div>
             <div class="botonAgregar">

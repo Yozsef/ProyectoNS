@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/crudstyle.css">
-    <script defer src="../js/clientes.js"></script>
+    <script defer src="../js/agregarCliente.js"></script>
+    <script src="https://kit.fontawesome.com/962dea5a09.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <script src="../js/Header.js"></script>
-    <div class="contenedor-productos">
-        <form id="formulario">
+    <div class="contenedor-productos2">
+        
             <h2>Agregar/Editar Clientes</h2>
             <div class="botones">
-                <button value="agregar" id="agregarBtn" onclick="location.href='agregarCliente.html'"> Agregar </button></a>
+                <button value="agregar" id="agregarBtn" onclick="irAgregar()"> Agregar </button></a>
                 <button value="buscar" id="buscarBtn">Buscar</button>
             </div>
             <div class="tabla">
@@ -24,18 +25,17 @@
                           <th>Nombre</th>
                           <th>Telefono</th>
                           <th>Correo</th>
-                          <th>Provincia</th>
+                          <th>Password</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody" >
-                        <td>
-
-                        </td>
+                        
                     </tbody>
                 </table>
             </div>
-        </form>
+        
     </div>
     <script src="../js/footer.js"></script>
+    <script src="../js/clientes.js"></script>
 </body>
 </html>
